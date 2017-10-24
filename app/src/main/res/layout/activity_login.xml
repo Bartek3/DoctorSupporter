@@ -54,18 +54,27 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_margin="5dp"
+                android:gravity="center"
                 android:hint="ID"
-                android:textStyle="bold"/>
+                android:textColor="@android:color/background_light"
+                android:textColorHighlight="@android:color/background_light"
+                android:textColorHint="@android:color/background_light"
+                android:textStyle="bold"
+                tools:defaultFocusHighlightEnabled="false"
+                tools:textColorHighlight="@android:color/background_light" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_margin="5dp"
+                android:gravity="center"
                 android:hint="Hasło"
-                android:textStyle="bold" />
+                android:textColor="@android:color/background_light"
+                android:textColorHighlight="@android:color/background_light"
+                android:textColorHint="@android:color/background_light"
+                android:textStyle="bold"
+                tools:textColorHint="@android:color/background_light" />
 
             <Button
                 android:layout_width="150dp"
