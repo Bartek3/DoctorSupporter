@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">DoctorSupporter+</string>
+    <string name="id_edittext">ID</string>
+    <string name="password_edittext">Hasło</string>
+    <string name="login_Btn">Zaloguj</string>
+    <string name="wrongLoginText">Nieprawidłowe logowanie!</string>
+
+
+
 </resources>
