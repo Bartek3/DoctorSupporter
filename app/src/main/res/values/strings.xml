@@ -4,5 +4,6 @@
     <string name="password_edittext">Hasło</string>
     <string name="login_Btn">Zaloguj</string>
     <string name="wrongLoginText">Nieprawidłowe logowanie!</string>
+    <string name="action_settings">Settings</string>
 
 </resources>
