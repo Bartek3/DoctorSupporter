@@ -15,7 +15,7 @@ import com.mysql.jdbc.Driver;
 
 class DbControl {
     Connection conn = null;
-    String url = "jdbc:mysql://johnny.heliohost.org/nadirs_doctors";
+    String url = "jdbc:mysql://johnny.heliohost.org:3306";
     String userName = "nadirs_doctor";
     String dbpassword = "INSERT PASSWORD HERE"; // !!!!!!!! DO NOT PUSH TO GIT REAL PASSWORD
     //todo load password from external file that is in .gitignore
