@@ -32,7 +32,7 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="20dp"
                 android:gravity="center_vertical"
-                android:text="doc. Jan Kowalski"
+                android:text="dr med. Jan Kowalski"
                 android:textColor="@android:color/white"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -52,7 +52,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity=""
-                android:text="Bartłomiej Pawelski"
+                android:text="Janusz Herbata"
                 android:textColor="@android:color/white"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -67,7 +67,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginEnd="10dp"
                     android:gravity=""
-                    android:text="Wiek: 28"
+                    android:text="Wiek: 23"
                     android:textColor="@android:color/white"
                     android:textSize="16sp"
                     android:textStyle="bold" />

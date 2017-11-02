@@ -23,7 +23,7 @@ public class LoginActivity extends AppCompatActivity {
         EditText passET = (EditText) findViewById(R.id.passwordEditText);
         String password = passET.getText().toString();
         int userId = dbc.login(login,password);
-
+        openMainActivity(userId); // wejscie
         if(userId>0){
             openMainActivity(userId);
         }

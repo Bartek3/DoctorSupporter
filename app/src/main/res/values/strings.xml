@@ -1,9 +1,22 @@
 <resources>
+
+    // Login Activity
     <string name="app_name">DoctorSupporter+</string>
     <string name="id_edittext">ID</string>
     <string name="password_edittext">Hasło</string>
     <string name="login_Btn">Zaloguj</string>
     <string name="wrongLoginText">Nieprawidłowe logowanie!</string>
     <string name="action_settings">Settings</string>
+
+//  Patient
+    <string name="imieTextV">Imię</string>
+    <string name="nazwiskoTextV">Nazwisko</string>
+    <string name="dataUroTextV">Data urodzenia</string>
+    <string name="peselTextV">PESEL</string>
+    <string name="adresZamieszkaniaTextV">Adres zamieszkania</string>
+    <string name="adresKorTextV">Adres korespondencyjny</string>
+    <string name="oddzialNFZtext">Oddział NFZ</string>
+    <string name="telefonDoKontaktuTextV">Telefon do kontaktu</string>
+
 
 </resources>
