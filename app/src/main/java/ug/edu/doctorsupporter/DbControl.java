@@ -1,13 +1,12 @@
 package ug.edu.doctorsupporter;
 
+import java.security.MessageDigest;
 import java.sql.Connection;
 import java.sql.DriverManager;
-
-import java.security.MessageDigest;
 import java.sql.ResultSet;
 import java.sql.Statement;
-
-import com.mysql.jdbc.Driver;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 /**
  * Created by Dominik on 31.10.2017.
@@ -22,6 +21,9 @@ class DbControl {
     String driver = "com.mysql.jdbc.Driver";
 
     int id=-1;
+
+
+
     public int login(String login, String password) {
         try {
             Statement stmt = null;
@@ -76,5 +78,51 @@ class DbControl {
             e.printStackTrace();
         }
         return "";
+    }
+
+
+    public Pacjent Informacje(int idPacjent) {
+        String imie = null;
+        String nazwisko = null;
+        String dataurodzenia = null;
+        String Pesel = null;
+        int AdresZamieszkania = -1;
+        int AdresKorespondencyjny = -1;
+        int  OddzialNFZ = -1;
+        Pacjent pacjent = null;
+
+        DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+
+        try {
+            Statement stmt = null;
+            ResultSet rs = null;
+
+            Class.forName (driver);
+            conn = DriverManager.getConnection (url, userName, dbpassword);
+            System.out.println ("Database connection established");
+            String query = "SELECT * FROM nadirs_doctors.Pacjent WHERE idPacjent = "+idPacjent+";";
+
+            stmt=conn.createStatement();
+            rs = stmt.executeQuery(query);
+
+            while   (rs.next()) {
+                imie = rs.getString("Imie");
+                nazwisko = rs.getString("Nazwisko");
+                String reportDate = df.format(rs.getDate("dataUrodzenia"));
+                Pesel = rs.getString("Pesel");
+                AdresZamieszkania = rs.getInt("AdresZamieszkania");
+                AdresKorespondencyjny = rs.getInt("AdresKorespondencyjny");
+                OddzialNFZ = rs.getInt("OddzialNFZ");
+                pacjent = new Pacjent(id,imie,nazwisko,dataurodzenia,Pesel,AdresZamieszkania,
+                AdresKorespondencyjny,OddzialNFZ);
+            }
+
+        } catch (Exception e) {
+
+        } finally {
+            this.close();
+            return pacjent;
+        }
+
     }
 }
