@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-
 /**
  * Created by Dominik on 31.10.2017.
  */
@@ -16,21 +15,26 @@ class DbControl {
     Connection conn = null;
     String url = "jdbc:mysql://johnny.heliohost.org:3306";
     String userName = "nadirs_doctor";
-    String dbpassword = "INSERT PASSWORD HERE"; // !!!!!!!! DO NOT PUSH TO GIT REAL PASSWORD
+    String dbpassword = "PASSWORD HERER"; // !!!!!!!! DO NOT PUSH TO GIT REAL PASSWORD
     //todo load password from external file that is in .gitignore
     String driver = "com.mysql.jdbc.Driver";
 
-    int id=-1;
 
 
 
-    public int login(String login, String password) {
+
+    public int login(String login, String password){
+        int id=-1;
+
         try {
+
+
             Statement stmt = null;
             ResultSet rs = null;
 
             Class.forName (driver);
             conn = DriverManager.getConnection (url, userName, dbpassword);
+
             System.out.println ("Database connection established");
             String hash = md5(password);
             String query = "SELECT idLekarz FROM nadirs_doctors.Lekarz WHERE login = "+login+" AND passwordHash ="+ hash+";";
@@ -43,8 +47,12 @@ class DbControl {
 
         } catch (Exception e) {
 
+
+               return -5555;
         } finally {
             this.close();
+
+
             return id;
         }
 
@@ -72,7 +80,7 @@ class DbControl {
             StringBuffer hexString = new StringBuffer();
             for (int i=0; i<messageDigest.length; i++)
                 hexString.append(Integer.toHexString(0xFF & messageDigest[i]));
-            return hexString.toString();
+            return hexString.toString().toLowerCase();  //  zapisywanie małymi literami
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -113,7 +121,7 @@ class DbControl {
                 AdresZamieszkania = rs.getInt("AdresZamieszkania");
                 AdresKorespondencyjny = rs.getInt("AdresKorespondencyjny");
                 OddzialNFZ = rs.getInt("OddzialNFZ");
-                pacjent = new Pacjent(id,imie,nazwisko,dataurodzenia,Pesel,AdresZamieszkania,
+                pacjent = new Pacjent(idPacjent,imie,nazwisko,dataurodzenia,Pesel,AdresZamieszkania,
                 AdresKorespondencyjny,OddzialNFZ);
             }
 

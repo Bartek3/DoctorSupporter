@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -25,6 +26,12 @@ public class LoginActivity extends AppCompatActivity {
 
         if(userId>0){
             openMainActivity(userId);
+        }
+        else {
+
+            TextView wrongLogin = (TextView) findViewById(R.id.wrongLoginText);
+            wrongLogin.setVisibility(View.VISIBLE);  // jakie to jest zjebane
+            wrongLogin.setText("Nieprawidłowe logowanie! "+userId);
         }
 
     }

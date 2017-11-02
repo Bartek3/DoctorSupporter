@@ -56,7 +56,7 @@
                 android:layout_margin="5dp"
                 android:gravity="center"
                 android:hint="@string/id_edittext"
-                android:inputType="number"
+                android:inputType="text"
                 android:textColor="@android:color/background_light"
                 android:textColorHighlight="@android:color/background_light"
                 android:textColorHint="@android:color/background_light"
@@ -75,7 +75,9 @@
                 android:textColorHighlight="@android:color/background_light"
                 android:textColorHint="@android:color/background_light"
                 android:textStyle="bold"
-                tools:textColorHint="@android:color/background_light" />
+                tools:textColorHint="@android:color/background_light"
+                android:inputType="textPassword"
+                />
 
             <Button
                 android:id="@+id/loginButton"
@@ -92,12 +94,13 @@
                 android:id="@+id/wrongLoginText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/wrongLoginText"
                 android:textAlignment="center"
                 android:textColor="@android:color/holo_red_dark"
                 android:textSize="14sp"
                 android:textStyle="bold"
-                android:visibility="invisible" />
+                android:visibility="invisible"
+
+                />
 
         </LinearLayout>
 
