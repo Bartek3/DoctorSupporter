@@ -10,8 +10,6 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 
 /**
  * Created by Dominik on 31.10.2017.
@@ -38,93 +36,84 @@ class DbControl {
         }
         return "";
     }
-//
-//    public Pacjent Informacje(int idPacjent) {
-//        String imie = null;
-//        String nazwisko = null;
-//        String dataurodzenia = null;
-//        String Pesel = null;
-//        int AdresZamieszkania = -1;
-//        int AdresKorespondencyjny = -1;
-//        int OddzialNFZ = -1;
-//        Pacjent pacjent = null;
-//
-//        DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
-//
-//        try {
-//            Statement stmt = null;
-//            ResultSet rs = null;
-//
-//            Class.forName(driver);
-//            conn = DriverManager.getConnection(url, userName, dbpassword);
-//            System.out.println("Database connection established");
-//            String query = "SELECT * FROM nadirs_doctors.Pacjent WHERE idPacjent = " + idPacjent + ";";
-//
-//            stmt = conn.createStatement();
-//            rs = stmt.executeQuery(query);
-//
-//            while (rs.next()) {
-//                imie = rs.getString("Imie");
-//                nazwisko = rs.getString("Nazwisko");
-//                String reportDate = df.format(rs.getDate("dataUrodzenia"));
-//                Pesel = rs.getString("Pesel");
-//                AdresZamieszkania = rs.getInt("AdresZamieszkania");
-//                AdresKorespondencyjny = rs.getInt("AdresKorespondencyjny");
-//                OddzialNFZ = rs.getInt("OddzialNFZ");
-//                pacjent = new Pacjent(idPacjent, imie, nazwisko, dataurodzenia, Pesel, AdresZamieszkania,
-//                        AdresKorespondencyjny, OddzialNFZ);
-//            }
-//
-//        } catch (Exception e) {
-//
-//        } finally {
-//            try {
-//                conn.close();
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//            }
-//            return pacjent;
-//        }
-//
-//    }
 
-    public static class LoginAsync extends AsyncTask<String, Integer, Integer> {
+    public static class dbFunctions extends AsyncTask<String, Integer, Integer> {
 
+        String typ = "";
+        //private int id = -1;
         Connection conn = null;
-        String url = "jdbc:mysql://johnny.heliohost.org/nadirs_doctors";
-        String userName = "nadirs_doctor";
-        String dbpassword = "TO DO PASSWORD FROM EXTERNAL RESOURCE, A do tego czasu INSERT PASSWORD HERE"; // !!!!!!!! DO NOT PUSH TO GIT REAL PASSWORD
-        //todo load password from external file that is in .gitignore
-        String driver = "com.mysql.jdbc.Driver";
+
+        private Activity activity;
 
 
-        private int id = -1;
-        private LoginActivity activity;
-
-        public LoginAsync(LoginActivity activity) {
+        public dbFunctions(Activity activity, String typ) {
             this.activity = activity;
+            this.typ = typ;
         }
+
+        private Connection connect() throws ClassNotFoundException, IllegalAccessException, InstantiationException, SQLException {
+
+            Connection conn = null;
+            String url = "jdbc:mysql://johnny.heliohost.org/nadirs_doctors";
+            String userName = "nadirs_doctor";
+            String dbpassword = "PASSWORDHERE"; // !!!!!!!! DO NOT PUSH TO GIT REAL PASSWORD
+            //todo load password from external file that is in .gitignore
+            String driver = "com.mysql.jdbc.Driver";
+
+
+            Class.forName(driver).newInstance();
+            conn = DriverManager.getConnection(url, userName, dbpassword);
+
+            return conn;
+        }
+
 
         @Override
-        protected void onPreExecute(){
-            activity.printWarn("Logowanie w toku");
-            activity.disableLoginButton();
+        protected void onPreExecute() {
+
+            switch (typ) {
+                case "login":
+                    loginOnPreExecute();
+                    break;
+                default:
+                    Log.d("TYP", "Nierozpoznany typ " + typ);
+                    break;
+            }
         }
+
+        //onPreExecute for login
+        protected void loginOnPreExecute() {
+            LoginActivity loginActivity = (LoginActivity) this.activity;
+            loginActivity.printWarn("Logowanie w toku");
+            loginActivity.disableLoginButton();
+        }
+
         @Override
         protected Integer doInBackground(String... strings) {
+            Integer toRet = -1;
+
+            switch (typ) {
+                case "login":
+                    toRet = loginDoInBackground(strings);
+
+                    break;
+            }
+
+            return toRet;
+        }
+
+        // doInBackground for login
+        protected Integer loginDoInBackground(String... strings) {
 
             String login = strings[0];
             String password = strings[1];
-            // int id = -1;
+            int id = -1;
             try {
                 Statement stmt = null;
                 ResultSet rs = null;
 
-                Class.forName(driver).newInstance();
 
-
-                conn = DriverManager.getConnection(url, userName, dbpassword);
-
+                conn = this.connect();
                 System.out.println("Database connection established");
                 String hash = DbControl.md5(password);
                 String query = "SELECT idLekarz FROM Lekarz WHERE login = \"" + login + "\" AND passwordHash =\"" + hash + "\";";
@@ -148,17 +137,30 @@ class DbControl {
                 }
                 return Integer.valueOf(id);
             }
+
         }
 
         @Override
         protected void onPostExecute(Integer result) {
-            activity.enableLoginButton();
-            Log.d("PostLAS", ":" + id);
-            if(id>0){
-                activity.openMainActivity(id);
+
+            switch (typ) {
+
+                case "login":
+                    loginOnPostExecute(result);
+                    break;
             }
-            else{
-                activity.printWarn("Logowanie nie powiodło się");
+
+        }
+
+        private void loginOnPostExecute(Integer result) {
+            int id = result.intValue();
+            LoginActivity loginActivity = (LoginActivity) this.activity;
+            loginActivity.enableLoginButton();
+            Log.d("PostLAS", ":" + id);
+            if (id > 0) {
+                loginActivity.openMainActivity(id);
+            } else {
+                loginActivity.printWarn("Logowanie nie powiodło się");
             }
         }
     }

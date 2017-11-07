@@ -10,8 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import java.sql.SQLException;
-
 public class LoginActivity extends AppCompatActivity {
 
 
@@ -34,7 +32,7 @@ public class LoginActivity extends AppCompatActivity {
 
         String err= "--";
 
-        new DbControl.LoginAsync(this).execute(login,password);
+        new DbControl.dbFunctions(this,"login").execute(login,password);
 
 
          //  userId = dbc.login(login, password);
