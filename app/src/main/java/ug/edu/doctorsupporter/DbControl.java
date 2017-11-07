@@ -56,7 +56,7 @@ class DbControl {
             Connection conn = null;
             String url = "jdbc:mysql://johnny.heliohost.org/nadirs_doctors";
             String userName = "nadirs_doctor";
-            String dbpassword = "PASSWORDHERE"; // !!!!!!!! DO NOT PUSH TO GIT REAL PASSWORD
+            String dbpassword = "PASSWORD"; // !!!!!!!! DO NOT PUSH TO GIT REAL PASSWORD
             //todo load password from external file that is in .gitignore
             String driver = "com.mysql.jdbc.Driver";
 
@@ -99,6 +99,11 @@ class DbControl {
                     break;
             }
 
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
             return toRet;
         }
 
@@ -130,11 +135,7 @@ class DbControl {
 
             } finally {
                 Log.d("finallyLAS", "!!!!!");
-                try {
-                    conn.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
+
                 return Integer.valueOf(id);
             }
 
