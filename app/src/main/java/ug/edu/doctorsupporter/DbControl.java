@@ -1,15 +1,33 @@
 package ug.edu.doctorsupporter;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Request.Method;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.util.HashMap;
+import java.util.Map;
+
+import static java.nio.charset.StandardCharsets.*;
 
 /**
  * Created by Dominik on 31.10.2017.
@@ -40,9 +58,6 @@ class DbControl {
     public static class dbFunctions extends AsyncTask<String, Integer, Integer> {
 
         String typ = "";
-        //private int id = -1;
-        Connection conn = null;
-
         private Activity activity;
 
 
@@ -51,21 +66,7 @@ class DbControl {
             this.typ = typ;
         }
 
-        private Connection connect() throws ClassNotFoundException, IllegalAccessException, InstantiationException, SQLException {
 
-            Connection conn = null;
-            String url = "jdbc:mysql://johnny.heliohost.org/nadirs_doctors";
-            String userName = "nadirs_doctor";
-            String dbpassword = "PASSWORD"; // !!!!!!!! DO NOT PUSH TO GIT REAL PASSWORD
-            //todo load password from external file that is in .gitignore
-            String driver = "com.mysql.jdbc.Driver";
-
-
-            Class.forName(driver).newInstance();
-            conn = DriverManager.getConnection(url, userName, dbpassword);
-
-            return conn;
-        }
 
 
         @Override
@@ -99,45 +100,49 @@ class DbControl {
                     break;
             }
 
-            try {
-                conn.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+
             return toRet;
         }
 
         // doInBackground for login
         protected Integer loginDoInBackground(String... strings) {
 
-            String login = strings[0];
-            String password = strings[1];
-            int id = -1;
-            try {
-                Statement stmt = null;
-                ResultSet rs = null;
+            final String login = strings[0];
+            final String password = strings[1];
 
+            RequestQueue requsetqueue = Volley.newRequestQueue(this.activity.getApplicationContext());
 
-                conn = this.connect();
-                System.out.println("Database connection established");
-                String hash = DbControl.md5(password);
-                String query = "SELECT idLekarz FROM Lekarz WHERE login = \"" + login + "\" AND passwordHash =\"" + hash + "\";";
+            final String api = "https://nadirdoc.herokuapp.com/api/login";
 
-                stmt = conn.createStatement();
-                rs = stmt.executeQuery(query);
-                while (rs.next()) {
-                    id = rs.getInt("idLekarz");
+            StringRequest postReqest = new StringRequest(Method.POST, api,
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            Log.d("Response",response);
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Log.d("Error.Response", error.getMessage());
+                        }
+                    }            ){
+                @Override
+                protected Map<String,String> getParams(){
+                    Map<String, String>  params = new HashMap<String, String>();
+                    params.put("login", login);
+                    params.put("hashPass", md5(password));
+
+                    return params;
+
                 }
+            };
+            //add to the request queue
+            requsetqueue.add(postReqest);
 
-            } catch (Exception e) {
 
-                Log.d("LoginException: ", e.toString());
 
-            } finally {
-                Log.d("finallyLAS", "!!!!!");
-
-                return Integer.valueOf(id);
-            }
+            return 0;
 
         }
 
