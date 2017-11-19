@@ -13,18 +13,20 @@
         android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="38dp"
             android:background="?attr/colorPrimary">
 
+
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@mipmap/blankav"/>
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@mipmap/blankav" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -34,18 +36,18 @@
                 android:gravity="center_vertical"
                 android:text="dr med. Jan Kowalski"
                 android:textColor="@android:color/white"
-                android:textSize="16sp"
+                android:textSize="12sp"
                 android:textStyle="bold" />
 
         </android.support.v7.widget.Toolbar>
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:layout_marginEnd="20dp"
             android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
             android:orientation="vertical">
 
             <TextView
@@ -54,7 +56,7 @@
                 android:gravity=""
                 android:text="Janusz Herbata"
                 android:textColor="@android:color/white"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <LinearLayout
@@ -69,7 +71,7 @@
                     android:gravity=""
                     android:text="Wiek: 23"
                     android:textColor="@android:color/white"
-                    android:textSize="16sp"
+                    android:textSize="11sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -79,17 +81,17 @@
                     android:gravity=""
                     android:text="PESEL: 94010101112"
                     android:textColor="@android:color/white"
-                    android:textSize="16sp"
+                    android:textSize="11sp"
                     android:textStyle="bold" />
 
             </LinearLayout>
         </LinearLayout>
 
         <android.support.design.widget.TabLayout
-            style="@style/AppTabLayout"
             android:id="@+id/tabs"
+            style="@style/AppTabLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="35dp">
 
             <android.support.design.widget.TabItem
                 android:id="@+id/tabItem"
