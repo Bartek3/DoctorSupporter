@@ -1,20 +1,15 @@
 package ug.edu.doctorsupporter;
 
-/**
- * Created by Andrzej on 02.11.2017.
- */
-
 public class Pacjent {
 
-    private int id;
-      private  String imie = null;
-        private  String nazwisko = null;
-        private String dataurodzenia = null;
-        private String Pesel = null;
-        private int AdresZamieszkania = -1;
-        private int AdresKorespondencyjny = -1;
-        private int  OddzialNFZ = -1;
-
+        private int id;
+        private  String imie;
+        private  String nazwisko;
+        private String dataurodzenia;
+        private String Pesel;
+        private int AdresZamieszkania;
+        private int AdresKorespondencyjny;
+        private int  OddzialNFZ;
 
     public Pacjent (int id, String imie, String nazwisko, String dataurodzenia, String Pesel, int AdresZamieszkania,
                     int AdresKorespondencyjny, int OddzialNFZ) {
