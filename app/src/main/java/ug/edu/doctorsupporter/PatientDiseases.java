@@ -9,43 +9,39 @@ import android.view.ViewGroup;
 
 public class PatientDiseases extends Fragment {
 
-    private int idChoroby;
+    private int idDolegliwosci;
+    private String nazwaDolegliwosci;
+    private String uwagiDolegliwosc;
 
-    public int getIdChoroby() {
-        return idChoroby;
+    public int getIdDolegliwosci() {
+        return idDolegliwosci;
     }
 
-    public void setIdChoroby(int idChoroby) {
-        this.idChoroby = idChoroby;
+    public void setIdDolegliwosci(int idDolegliwosci) {
+        this.idDolegliwosci = idDolegliwosci;
     }
 
-    public String getNazwaChoroby() {
-        return nazwaChoroby;
+    public String getNazwaDolegliwosci() {
+        return nazwaDolegliwosci;
     }
 
-    public void setNazwaChoroby(String nazwaChoroby) {
-        this.nazwaChoroby = nazwaChoroby;
+    public void setNazwaDolegliwosci(String nazwaDolegliwosci) {
+        this.nazwaDolegliwosci = nazwaDolegliwosci;
     }
 
-    public String getOpischorobty() {
-        return opischorobty;
+    public String getUwagiDolegliwosc() {
+        return uwagiDolegliwosc;
     }
 
-    public void setOpischorobty(String opischorobty) {
-        this.opischorobty = opischorobty;
+    public void setUwagiDolegliwosc(String uwagiDolegliwosc) {
+        this.uwagiDolegliwosc = uwagiDolegliwosc;
     }
 
-    public String getOpisLeczenia() {
-        return opisLeczenia;
-    }
 
-    public void setOpisLeczenia(String opisLeczenia) {
-        this.opisLeczenia = opisLeczenia;
-    }
 
-    private String nazwaChoroby;
-    private String opischorobty;
-    private String opisLeczenia;
+
+
+
 
 
     public PatientDiseases() {

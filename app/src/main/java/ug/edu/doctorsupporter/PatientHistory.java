@@ -9,52 +9,104 @@ import android.view.ViewGroup;
 
 public class PatientHistory extends Fragment {
 
-    private int idChoroby;
+    private int idDolegliwosci;
+    private String dataDolegliwosci;
+    private String statusDolegliwosci; // wyleczone, niewyleczone itp
+    private String zrealizowaneBadnaia;
+    private String rozpoznanieKliniczne;
+    private String opisDolegliwosci;
+    private String dataDolegliwosciOD;
+    private String DataDolegliwosciDO;
+    private String zalecenia;
+    private String lekarzProwadzacy;
 
-    public int getIdChoroby() {
-        return idChoroby;
+
+
+    public int getIdDolegliwosci() {
+        return idDolegliwosci;
     }
 
-    public void setIdChoroby(int idChoroby) {
-        this.idChoroby = idChoroby;
+    public void setIdDolegliwosci(int idDolegliwosci) {
+        this.idDolegliwosci = idDolegliwosci;
     }
 
-    public String getOpisChoroby() {
-        return opisChoroby;
+    public String getDataDolegliwosci() {
+        return dataDolegliwosci;
     }
 
-    public void setOpisChoroby(String opisChoroby) {
-        this.opisChoroby = opisChoroby;
+    public void setDataDolegliwosci(String dataDolegliwosci) {
+        this.dataDolegliwosci = dataDolegliwosci;
     }
 
-    public String getDataChoroby() {
-        return dataChoroby;
+    public String getStatusDolegliwosci() {
+        return statusDolegliwosci;
     }
 
-    public void setDataChoroby(String dataChoroby) {
-        this.dataChoroby = dataChoroby;
+    public void setStatusDolegliwosci(String statusDolegliwosci) {
+        this.statusDolegliwosci = statusDolegliwosci;
     }
 
-    public String getLeczenie() {
-        return leczenie;
+    public String getZrealizowaneBadnaia() {
+        return zrealizowaneBadnaia;
     }
 
-    public void setLeczenie(String leczenie) {
-        this.leczenie = leczenie;
+    public void setZrealizowaneBadnaia(String zrealizowaneBadnaia) {
+        this.zrealizowaneBadnaia = zrealizowaneBadnaia;
     }
 
-    public String getZalaczniki() {
-        return zalaczniki;
+    public String getRozpoznanieKliniczne() {
+        return rozpoznanieKliniczne;
     }
 
-    public void setZalaczniki(String zalaczniki) {
-        this.zalaczniki = zalaczniki;
+    public void setRozpoznanieKliniczne(String rozpoznanieKliniczne) {
+        this.rozpoznanieKliniczne = rozpoznanieKliniczne;
     }
 
-    private String opisChoroby;
-    private String dataChoroby;
-    private String leczenie;
-    private String zalaczniki;
+    public String getOpisDolegliwosci() {
+        return opisDolegliwosci;
+    }
+
+    public void setOpisDolegliwosci(String opisDolegliwosci) {
+        this.opisDolegliwosci = opisDolegliwosci;
+    }
+
+    public String getDataDolegliwosciOD() {
+        return dataDolegliwosciOD;
+    }
+
+    public void setDataDolegliwosciOD(String dataDolegliwosciOD) {
+        this.dataDolegliwosciOD = dataDolegliwosciOD;
+    }
+
+    public String getDataDolegliwosciDO() {
+        return DataDolegliwosciDO;
+    }
+
+    public void setDataDolegliwosciDO(String dataDolegliwosciDO) {
+        DataDolegliwosciDO = dataDolegliwosciDO;
+    }
+
+    public String getZalecenia() {
+        return zalecenia;
+    }
+
+    public void setZalecenia(String zalecenia) {
+        this.zalecenia = zalecenia;
+    }
+
+    public String getLekarzProwadzacy() {
+        return lekarzProwadzacy;
+    }
+
+    public void setLekarzProwadzacy(String lekarzProwadzacy) {
+        this.lekarzProwadzacy = lekarzProwadzacy;
+    }
+
+
+
+
+
+
 
 
 

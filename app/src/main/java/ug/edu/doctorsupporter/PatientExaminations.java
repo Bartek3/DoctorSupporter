@@ -1,27 +1,24 @@
 package ug.edu.doctorsupporter;
 
 
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+        import android.os.Bundle;
+        import android.support.v4.app.Fragment;
+        import android.view.LayoutInflater;
+        import android.view.View;
+        import android.view.ViewGroup;
 
 public class PatientExaminations extends Fragment {
 
-    private String wzorst;
-    private String waga;
-    private String procentWodyWorganizmie;
-    private String masaMiesni;
-    private String procentTkankiTluszczowej;
-    private String brzuch;
-    private String obieNogi;
-    private String biodra;
-    private String udo;
-    private String masaOczekiwna;
-
     private int idBadania;
-    private String dataBadania;
+    private String rodzajBadania;  // badanie zostało wygenerowane w formie tabelarycznej - tekstowej wtedy mamy załącznik/ bądz obrazowej np. badanie rentgenowskie
+    private String nazwaBadania;
+    private String statusBadania;
+    private String dataODbadania;
+    private String dataDObadania;
+    private String opisBadnia;
+    private String objawyZgloszonePrzezPacjenta;
+    private String RozpoznanieKliniczne;
+    private String Zalecenia;
 
     public int getIdBadania() {
         return idBadania;
@@ -31,92 +28,76 @@ public class PatientExaminations extends Fragment {
         this.idBadania = idBadania;
     }
 
-    public String getDataBadania() {
-        return dataBadania;
+    public String getRodzajBadania() {
+        return rodzajBadania;
     }
 
-    public void setDataBadania(String dataBadania) {
-        this.dataBadania = dataBadania;
+    public void setRodzajBadania(String rodzajBadania) {
+        this.rodzajBadania = rodzajBadania;
     }
 
-    public String getWzorst() {
-        return wzorst;
+    public String getNazwaBadania() {
+        return nazwaBadania;
     }
 
-    public void setWzorst(String wzorst) {
-        this.wzorst = wzorst;
+    public void setNazwaBadania(String nazwaBadania) {
+        this.nazwaBadania = nazwaBadania;
     }
 
-    public String getWaga() {
-        return waga;
+    public String getStatusBadania() {
+        return statusBadania;
     }
 
-    public void setWaga(String waga) {
-        this.waga = waga;
+    public void setStatusBadania(String statusBadania) {
+        this.statusBadania = statusBadania;
     }
 
-    public String getProcentWodyWorganizmie() {
-        return procentWodyWorganizmie;
+    public String getDataODbadania() {
+        return dataODbadania;
     }
 
-    public void setProcentWodyWorganizmie(String procentWodyWorganizmie) {
-        this.procentWodyWorganizmie = procentWodyWorganizmie;
+    public void setDataODbadania(String dataODbadania) {
+        this.dataODbadania = dataODbadania;
     }
 
-    public String getMasaMiesni() {
-        return masaMiesni;
+    public String getDataDObadania() {
+        return dataDObadania;
     }
 
-    public void setMasaMiesni(String masaMiesni) {
-        this.masaMiesni = masaMiesni;
+    public void setDataDObadania(String dataDObadania) {
+        this.dataDObadania = dataDObadania;
     }
 
-    public String getProcentTkankiTluszczowej() {
-        return procentTkankiTluszczowej;
+    public String getOpisBadnia() {
+        return opisBadnia;
     }
 
-    public void setProcentTkankiTluszczowej(String procentTkankiTluszczowej) {
-        this.procentTkankiTluszczowej = procentTkankiTluszczowej;
+    public void setOpisBadnia(String opisBadnia) {
+        this.opisBadnia = opisBadnia;
     }
 
-    public String getBrzuch() {
-        return brzuch;
+    public String getObjawyZgloszonePrzezPacjenta() {
+        return objawyZgloszonePrzezPacjenta;
     }
 
-    public void setBrzuch(String brzuch) {
-        this.brzuch = brzuch;
+    public void setObjawyZgloszonePrzezPacjenta(String objawyZgloszonePrzezPacjenta) {
+        this.objawyZgloszonePrzezPacjenta = objawyZgloszonePrzezPacjenta;
     }
 
-    public String getObieNogi() {
-        return obieNogi;
+    public String getRozpoznanieKliniczne() {
+        return RozpoznanieKliniczne;
     }
 
-    public void setObieNogi(String obieNogi) {
-        this.obieNogi = obieNogi;
+    public void setRozpoznanieKliniczne(String rozpoznanieKliniczne) {
+        RozpoznanieKliniczne = rozpoznanieKliniczne;
     }
 
-    public String getBiodra() {
-        return biodra;
+    public String getZalecenia() {
+        return Zalecenia;
     }
 
-    public void setBiodra(String biodra) {
-        this.biodra = biodra;
-    }
-
-    public String getUdo() {
-        return udo;
-    }
-
-    public void setUdo(String udo) {
-        this.udo = udo;
-    }
-
-    public String getMasaOczekiwna() {
-        return masaOczekiwna;
-    }
-
-    public void setMasaOczekiwna(String masaOczekiwna) {
-        this.masaOczekiwna = masaOczekiwna;
+    public void setZalecenia(String zalecenia) {
+        Zalecenia = zalecenia;
     }
 
 
