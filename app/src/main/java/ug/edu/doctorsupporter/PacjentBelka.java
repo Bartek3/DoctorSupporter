@@ -1,6 +1,5 @@
 package ug.edu.doctorsupporter;
 
-
 /**
  * Created by Andrzej on 02.11.2017.
  */

@@ -12,15 +12,6 @@ public class PatientHistory extends Fragment {
     private int idDolegliwosci;
     private String dataDolegliwosci;
     private String statusDolegliwosci; // wyleczone, niewyleczone itp
-    private String zrealizowaneBadnaia;
-    private String rozpoznanieKliniczne;
-    private String opisDolegliwosci;
-    private String dataDolegliwosciOD;
-    private String DataDolegliwosciDO;
-    private String zalecenia;
-    private String lekarzProwadzacy;
-
-
 
     public int getIdDolegliwosci() {
         return idDolegliwosci;
@@ -79,11 +70,11 @@ public class PatientHistory extends Fragment {
     }
 
     public String getDataDolegliwosciDO() {
-        return DataDolegliwosciDO;
+        return dataDolegliwosciDO;
     }
 
     public void setDataDolegliwosciDO(String dataDolegliwosciDO) {
-        DataDolegliwosciDO = dataDolegliwosciDO;
+        this.dataDolegliwosciDO = dataDolegliwosciDO;
     }
 
     public String getZalecenia() {
@@ -101,6 +92,14 @@ public class PatientHistory extends Fragment {
     public void setLekarzProwadzacy(String lekarzProwadzacy) {
         this.lekarzProwadzacy = lekarzProwadzacy;
     }
+
+    private String zrealizowaneBadnaia;
+    private String rozpoznanieKliniczne;
+    private String opisDolegliwosci;
+    private String dataDolegliwosciOD;
+    private String dataDolegliwosciDO;
+    private String zalecenia;
+    private String lekarzProwadzacy;
 
 
 
