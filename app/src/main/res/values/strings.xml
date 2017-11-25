@@ -1,8 +1,37 @@
 <resources>
+
+    // Login Activity
     <string name="app_name">DoctorSupporter+</string>
     <string name="id_edittext">ID</string>
     <string name="password_edittext">Hasło</string>
     <string name="login_Btn">Zaloguj</string>
     <string name="wrongLoginText">Nieprawidłowe logowanie!</string>
+    <string name="action_settings">Settings</string>
+
+//  Containter Patient
+    <string name="imieTextV">Imię</string>
+    <string name="nazwiskoTextV">Nazwisko</string>
+    <string name="dataUroTextV">Data urodzenia</string>
+    <string name="peselTextV">PESEL</string>
+    <string name="adresZamieszkaniaTextV">Adres zamieszkania</string>
+    <string name="adresKorTextV">Adres korespondencyjny</string>
+    <string name="oddzialNFZtext">Oddział NFZ</string>
+    <string name="telefonDoKontaktuTextV">Telefon do kontaktu</string>
+
+// Containter Patient balance
+
+    <string name="iD">ID</string>
+    <string name="date">Data</string>
+    <string name="height">Wzrost</string>
+    <string name="weight">Waga</string>
+    <string name="waterPercentage">% wody w organizmie</string>
+    <string name="muscleMass">Masa mięśni</string>
+    <string name="percentageBodyFat">% tłuszczu</string>
+    <string name="stomach">Brzuch</string>
+    <string name="bothLegs">Obie nogi</string>
+    <string name="hips">Biodra</string>
+    <string name="thigh">Udo</string>
+    <string name="expectedMass">Masa oczekiwana</string>
+
 
 </resources>
