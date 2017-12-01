@@ -16,6 +16,7 @@ public class PacjentBelka {
         private int AdresZamieszkania;
         private int AdresKorespondencyjny;
         private int  OddzialNFZ;
+        private String sala;
 
     public PacjentBelka (int id, String imie, String nazwisko, String dataurodzenia, String Pesel, int AdresZamieszkania,
                     int AdresKorespondencyjny, int OddzialNFZ) {

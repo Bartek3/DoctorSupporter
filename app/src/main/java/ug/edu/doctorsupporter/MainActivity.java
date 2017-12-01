@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
+
+        new DbControl.dbFunctions(this,"wypelnijBelke").execute("0"); // pobieramy z bazy cały szmelc 1 pacjent
     }
 
     @Override
@@ -86,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
                     return new PatientDiseases();
                 case 4:
                     return new PatientBalance();
+
                 default:
                     return null;
             }
@@ -96,4 +100,20 @@ public class MainActivity extends AppCompatActivity {
             return 5;
         }
     }
+
+    public void PacjentInfo(String imie, String nazwisko, String dataurodzenia, String Pesel) {
+
+        TextView wyswietlImie = (TextView) findViewById(R.id.imieNazwiskoTV);
+
+        wyswietlImie.setText(imie +' '+nazwisko);
+
+
+//        TextView wyswietlNaziwsko = (TextView) findViewById(R.id.imieNazwiskoTV);
+//        wyswietlImie.setText(imie);
+
+    }
+
+   // string imieDB =
+
+
 }

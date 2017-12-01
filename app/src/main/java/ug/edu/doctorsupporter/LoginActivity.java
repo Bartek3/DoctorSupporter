@@ -34,6 +34,7 @@ public class LoginActivity extends AppCompatActivity {
 
         new DbControl.dbFunctions(this,"login").execute(login,password);
 
+        openMainActivity(1);
          //  userId = dbc.login(login, password);
        // openMainActivity(userId); // wejscie
 //        if(userId>0){

@@ -15,6 +15,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 import org.json.JSONObject;
 
@@ -60,6 +62,7 @@ class DbControl {
         String typ = "";
         private Activity activity;
 
+        protected String resultTemp ="";
 
         public dbFunctions(Activity activity, String typ) {
             this.activity = activity;
@@ -76,6 +79,8 @@ class DbControl {
                 case "login":
                     loginOnPreExecute();
                     break;
+                case "wypelnijBelke":
+                    wypelnijBelkeOnPreExecute();
                 default:
                     Log.d("TYP", "Nierozpoznany typ " + typ);
                     break;
@@ -89,20 +94,29 @@ class DbControl {
             loginActivity.disableLoginButton();
         }
 
+        protected  void  wypelnijBelkeOnPreExecute(){};
+
         @Override
         protected Integer doInBackground(String... strings) {
             Integer toRet = -1;
+
+
+
 
             switch (typ) {
                 case "login":
                     toRet = loginDoInBackground(strings);
 
                     break;
+                case "wypelnijBelke":
+                    toRet = wypelnijBelkeDoInBackground(strings);
             }
 
 
             return toRet;
         }
+
+
 
         // doInBackground for login
         protected Integer loginDoInBackground(String... strings) {
@@ -119,6 +133,8 @@ class DbControl {
                         @Override
                         public void onResponse(String response) {
                             Log.d("Response",response);
+
+                            this.resultTemp = response;
                         }
                     },
                     new Response.ErrorListener() {
@@ -146,6 +162,50 @@ class DbControl {
 
         }
 
+        // doInBackground for Belka
+        protected Integer wypelnijBelkeDoInBackground(String... strings) {
+
+            final String idPacjent = strings[0];
+
+            RequestQueue requsetqueue = Volley.newRequestQueue(this.activity.getApplicationContext());
+
+            final String api = "https://nadirdoc.herokuapp.com/api/pacjentInfo";
+
+            StringRequest postReqest = new StringRequest(Method.POST, api,
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            Log.d("Response",response);
+                            this.resultTemp = response;
+
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Log.d("Error.Response", error.getMessage());
+                        }
+                    }            ){
+                @Override
+                protected Map<String,String> getParams(){
+                    Map<String, String>  params = new HashMap<String, String>();
+                    params.put("idPacjent", idPacjent);
+
+
+                    return params;
+
+                }
+            };
+            //add to the request queue
+            requsetqueue.add(postReqest);
+
+
+
+            return 0;
+
+        }
+
+
         @Override
         protected void onPostExecute(Integer result) {
 
@@ -154,6 +214,8 @@ class DbControl {
                 case "login":
                     loginOnPostExecute(result);
                     break;
+                case "wypelnijBelke":
+                    wypelnijBelkeOnPostExecute(result);
             }
 
         }
@@ -168,6 +230,21 @@ class DbControl {
             } else {
                 loginActivity.printWarn("Logowanie nie powiodło się");
             }
+        }
+
+        private void wypelnijBelkeOnPostExecute(Integer result) {
+            int id = result.intValue();
+            MainActivity mainActivity = (MainActivity) this.activity;
+
+            JsonObject jsonObject = new JsonParser().parse(this.resultTemp).getAsJsonObject();
+
+            String imie = jsonObject.get("Imie").getAsString();
+            String nazwisko = jsonObject.get("Nazwisko").getAsString();
+            String dataurodzenia = jsonObject.get("dataUrodzenia").getAsString();
+            String Pesel= jsonObject.get("Pesel").getAsString();
+
+
+            mainActivity.PacjentInfo( imie, nazwisko, dataurodzenia, Pesel);
         }
     }
 }
