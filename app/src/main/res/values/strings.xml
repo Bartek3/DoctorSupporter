@@ -6,7 +6,7 @@
     <string name="password_edittext">Hasło</string>
     <string name="login_Btn">Zaloguj</string>
     <string name="wrongLoginText">Nieprawidłowe logowanie!</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_logout">Wyloguj</string>
 
 //  Patient
     <string name="imieTextV">Imię</string>
