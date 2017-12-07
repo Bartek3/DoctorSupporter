@@ -45,8 +45,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginStart="30dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
             android:orientation="vertical">
 
@@ -68,7 +68,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
                     android:gravity=""
                     android:text="Wiek: 23"
                     android:textColor="@android:color/white"
@@ -78,7 +78,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
                     android:gravity=""
                     android:text="PESEL: 94010101112"
                     android:textColor="@android:color/white"

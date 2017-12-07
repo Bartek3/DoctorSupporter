@@ -1,5 +1,6 @@
 package ug.edu.doctorsupporter;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -54,8 +55,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.action_logout) {
+            Intent logout = new Intent(this, LoginActivity.class);
+            logout.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(logout);
         }
 
         return super.onOptionsItemSelected(item);
