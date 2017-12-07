@@ -55,7 +55,8 @@ class DbControl {
         return "";
     }
 
-    public void task(final Activity a, final String api, final String... par) {
+    public void task(final Activity a, final String whattodo,final String api, final String... par) {
+
 
         Log.d("dbc task", api + ": " + par.toString());
         RequestQueue queue = Volley.newRequestQueue(a);
@@ -75,11 +76,12 @@ class DbControl {
                             //   try {
                             JsonArray jsonArray = new JsonParser().parse(response).getAsJsonArray();
                             if (jsonArray.size() > 0) {
-                                switch (api) {
+
+                                switch (whattodo) {
                                     case "login":
                                         loginOnResponse(jsonArray, a);
                                         break;
-                                    case "pacjentInfo":
+                                    case "belka":
                                         pacjentInfoOnResponse(jsonArray, a);
                                         break;
 

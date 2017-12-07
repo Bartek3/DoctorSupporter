@@ -34,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
 
        // new DbControl.dbFunctions(this,"login").execute(login,password);
        String[] params = {login,password};
-        dbc.task(this,"login",params);
+        dbc.task(this,"login","login",params);
        Log.d("Alt","AAA");
       //  openMainActivity(1);
          //  userId = dbc.login(login, password);

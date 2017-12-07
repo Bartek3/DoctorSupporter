@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
         dbc=new DbControl();
-        dbc.task(this,"pacjentInfo","1");
+        dbc.task(this,"belka","pacjentInfo","1");
         //new DbControl.dbFunctions(this,"wypelnijBelke").execute("0"); // pobieramy z bazy cały szmelc 1 pacjent
     }
 
