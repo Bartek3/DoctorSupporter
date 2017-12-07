@@ -24,7 +24,7 @@
             android:layout_row="0"
             android:text="@string/imieTextV"
             android:textColor="@android:color/background_light"
-            android:textSize="18sp" />
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/imieValue"
@@ -36,7 +36,7 @@
             android:layout_row="0"
             android:text="Janusz"
             android:textColor="@android:color/background_light"
-            android:textSize="18sp" />
+            android:textSize="12sp" />
 
 
         <TextView
@@ -49,7 +49,7 @@
             android:layout_row="1"
             android:text="@string/nazwiskoTextV"
             android:textColor="@android:color/background_light"
-            android:textSize="18sp" />
+            android:textSize="12sp" />
 
 
         <TextView
@@ -62,7 +62,7 @@
             android:layout_row="1"
             android:text="Hebata"
             android:textColor="@android:color/background_light"
-            android:textSize="18sp" />
+            android:textSize="12sp"/>
 
         <TextView
             android:id="@+id/dataUroTextV"
@@ -74,7 +74,7 @@
             android:layout_row="2"
             android:text="@string/dataUroTextV"
             android:textColor="@android:color/background_light"
-            android:textSize="18sp" />
+            android:textSize="12sp" />
 
 
         <TextView
@@ -88,7 +88,7 @@
             android:layout_row="2"
             android:text="01.01.1991"
             android:textColor="@android:color/background_light"
-            android:textSize="18sp" />
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/peselTextV"
@@ -100,7 +100,7 @@
             android:layout_row="3"
             android:text="@string/peselTextV"
             android:textColor="@android:color/background_light"
-            android:textSize="18sp"  />
+            android:textSize="12sp"  />
 
 
         <TextView
@@ -113,7 +113,7 @@
             android:layout_row="3"
             android:text="91010122930"
             android:textColor="@android:color/background_light"
-            android:textSize="18sp"  />
+            android:textSize="12sp"  />
 
         <TextView
             android:id="@+id/adresZamieszkaniaTextV"
@@ -125,7 +125,7 @@
             android:layout_row="4"
             android:text="@string/adresZamieszkaniaTextV"
             android:textColor="@android:color/background_light"
-            android:textSize="18sp"  />
+            android:textSize="12sp"  />
 
 
         <TextView
@@ -138,7 +138,7 @@
             android:layout_row="4"
             android:text="ul. Świetna 9, 90-102 Kasztaniaki"
             android:textColor="@android:color/background_light"
-            android:textSize="18sp"  />
+            android:textSize="12sp"  />
 
         <TextView
             android:id="@+id/adresKorTextV"
@@ -150,7 +150,7 @@
             android:layout_row="5"
             android:text="@string/adresKorTextV"
             android:textColor="@android:color/background_light"
-            android:textSize="18sp"  />
+            android:textSize="12sp"  />
 
 
         <TextView
@@ -163,7 +163,7 @@
             android:layout_row="5"
             android:text="ul. Mleczna 12/11, 21-222 Kocie Budy"
             android:textColor="@android:color/background_light"
-            android:textSize="18sp" />
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/oddzialNFZtextV"
@@ -175,7 +175,7 @@
             android:layout_row="6"
             android:text="@string/oddzialNFZtext"
             android:textColor="@android:color/background_light"
-            android:textSize="18sp"  />
+            android:textSize="12sp"  />
 
 
         <TextView
@@ -188,7 +188,7 @@
             android:layout_row="6"
             android:text="11"
             android:textColor="@android:color/background_light"
-            android:textSize="18sp"  />
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/telefonDoKontaktuTextV"
@@ -200,7 +200,7 @@
             android:layout_row="7"
             android:text="@string/telefonDoKontaktuTextV"
             android:textColor="@android:color/background_light"
-            android:textSize="18sp"  />
+            android:textSize="12sp"  />
 
 
         <TextView
@@ -213,7 +213,7 @@
             android:layout_row="7"
             android:text="503 829 910"
             android:textColor="@android:color/background_light"
-            android:textSize="18sp"  />
+            android:textSize="12sp"  />
 
 
     </GridLayout>

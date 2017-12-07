@@ -32,12 +32,12 @@ public class LoginActivity extends AppCompatActivity {
 
         String err= "--";
 
-        new DbControl.dbFunctions(this,"login").execute(login,password);
-
-
+       // new DbControl.dbFunctions(this,"login").execute(login,password);
+       String[] params = {login,password};
+        dbc.task(this,"login",params);
+       Log.d("Alt","AAA");
+      //  openMainActivity(1);
          //  userId = dbc.login(login, password);
-
-
        // openMainActivity(userId); // wejscie
 //        if(userId>0){
 //           openMainActivity(userId);

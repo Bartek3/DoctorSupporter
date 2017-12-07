@@ -14,12 +14,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
-
+    DbControl dbc;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
+        dbc=new DbControl();
+        dbc.task(this,"pacjentInfo","1");
+        //new DbControl.dbFunctions(this,"wypelnijBelke").execute("0"); // pobieramy z bazy cały szmelc 1 pacjent
     }
 
     @Override
@@ -89,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
                     return new PatientDiseases();
                 case 4:
                     return new PatientBalance();
+
                 default:
                     return null;
             }
@@ -99,4 +104,20 @@ public class MainActivity extends AppCompatActivity {
             return 5;
         }
     }
+
+    public void PacjentInfo(String imie, String nazwisko, String dataurodzenia, String Pesel) {
+
+        TextView wyswietlImie = (TextView) findViewById(R.id.imieNazwiskoTV);
+
+        wyswietlImie.setText(imie +' '+nazwisko);
+
+
+//        TextView wyswietlNaziwsko = (TextView) findViewById(R.id.imieNazwiskoTV);
+//        wyswietlImie.setText(imie);
+
+    }
+
+   // string imieDB =
+
+
 }

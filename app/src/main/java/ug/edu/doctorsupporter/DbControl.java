@@ -1,39 +1,39 @@
 package ug.edu.doctorsupporter;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
 import com.android.volley.Request.Method;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
-import org.json.JSONObject;
-
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.util.HashMap;
 import java.util.Map;
-
-import static java.nio.charset.StandardCharsets.*;
 
 /**
  * Created by Dominik on 31.10.2017.
  */
 
 class DbControl {
+    private static final Gson gson = new Gson();
+
+    public static boolean isJSONValid(String jsonInString) {
+        try {
+            gson.fromJson(jsonInString, Object.class);
+            return true;
+        } catch (com.google.gson.JsonSyntaxException ex) {
+            return false;
+        }
+    }
 
 
     public static String md5(String s) {
@@ -55,119 +55,335 @@ class DbControl {
         return "";
     }
 
-    public static class dbFunctions extends AsyncTask<String, Integer, Integer> {
+    public void task(final Activity a, final String api, final String... par) {
 
-        String typ = "";
-        private Activity activity;
-
-
-        public dbFunctions(Activity activity, String typ) {
-            this.activity = activity;
-            this.typ = typ;
-        }
+        Log.d("dbc task", api + ": " + par.toString());
+        RequestQueue queue = Volley.newRequestQueue(a);
+        final String url = "https://nadirdoc.herokuapp.com/api/" + api;
 
 
+        StringRequest postRequest = new StringRequest(Method.POST, url,
+                new Response.Listener<String>() {
+                    //    Log.d("PR1","TEST1");
 
+                    @Override
+                    public void onResponse(String response) {
+                        Log.d("ResponseAAA", response);
 
-        @Override
-        protected void onPreExecute() {
+                        if (isJSONValid(response)) {
+                            Log.d("CheckJSON", "VALID");
+                            //   try {
+                            JsonArray jsonArray = new JsonParser().parse(response).getAsJsonArray();
+                            if (jsonArray.size() > 0) {
+                                switch (api) {
+                                    case "login":
+                                        loginOnResponse(jsonArray, a);
+                                        break;
+                                    case "pacjentInfo":
+                                        pacjentInfoOnResponse(jsonArray, a);
+                                        break;
 
-            switch (typ) {
-                case "login":
-                    loginOnPreExecute();
-                    break;
-                default:
-                    Log.d("TYP", "Nierozpoznany typ " + typ);
-                    break;
-            }
-        }
+                                }
+                            }
 
-        //onPreExecute for login
-        protected void loginOnPreExecute() {
-            LoginActivity loginActivity = (LoginActivity) this.activity;
-            loginActivity.printWarn("Logowanie w toku");
-            loginActivity.disableLoginButton();
-        }
-
-        @Override
-        protected Integer doInBackground(String... strings) {
-            Integer toRet = -1;
-
-            switch (typ) {
-                case "login":
-                    toRet = loginDoInBackground(strings);
-
-                    break;
-            }
-
-
-            return toRet;
-        }
-
-        // doInBackground for login
-        protected Integer loginDoInBackground(String... strings) {
-
-            final String login = strings[0];
-            final String password = strings[1];
-
-            RequestQueue requsetqueue = Volley.newRequestQueue(this.activity.getApplicationContext());
-
-            final String api = "https://nadirdoc.herokuapp.com/api/login";
-
-            StringRequest postReqest = new StringRequest(Method.POST, api,
-                    new Response.Listener<String>() {
-                        @Override
-                        public void onResponse(String response) {
-                            Log.d("Response",response);
                         }
-                    },
-                    new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            Log.d("Error.Response", error.getMessage());
-                        }
-                    }            ){
-                @Override
-                protected Map<String,String> getParams(){
-                    Map<String, String>  params = new HashMap<String, String>();
-                    params.put("login", login);
-                    params.put("hashPass", md5(password));
-
-                    return params;
-
+//
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.d("Error.ResponseAAA", error.getMessage() + "???");
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = null;
+                switch (api) {
+                    case "login":
+                        params = loginParams(par);
+                        break;
+                    case "pacjentInfo":
+                        params = pacjentInfoParams(par);
+                        break;
                 }
-            };
-            //add to the request queue
-            requsetqueue.add(postReqest);
+                Log.d("getParams", params.toString());
+                return params;
 
-
-
-            return 0;
-
-        }
-
-        @Override
-        protected void onPostExecute(Integer result) {
-
-            switch (typ) {
-
-                case "login":
-                    loginOnPostExecute(result);
-                    break;
             }
+        };
 
-        }
+        queue.add(postRequest);
 
-        private void loginOnPostExecute(Integer result) {
-            int id = result.intValue();
-            LoginActivity loginActivity = (LoginActivity) this.activity;
-            loginActivity.enableLoginButton();
-            Log.d("PostLAS", ":" + id);
-            if (id > 0) {
-                loginActivity.openMainActivity(id);
-            } else {
-                loginActivity.printWarn("Logowanie nie powiodło się");
-            }
-        }
     }
+
+
+
+    private Map<String,String> pacjentInfoParams(String[] par) {
+        String idPacjent= par[0];
+        Map<String, String> params = new HashMap<String, String>();
+        params.put("idPacjent", idPacjent);
+        return params;
+    }
+
+
+    private Map<String, String> loginParams(String... par) {
+        String login = par[0];
+        String password = par[1];
+        Map<String, String> params = new HashMap<String, String>();
+        params.put("login", login);
+        params.put("hashPass", md5(password));
+
+        return params;
+    }
+
+    private void loginOnResponse(JsonArray jsonArray, Activity a) {
+        LoginActivity loginActivity = (LoginActivity) a;
+        Log.d("LOR", jsonArray.toString());
+
+        String temp = jsonArray.get(0).toString();
+        Log.d("jo", jsonArray.get(0).toString());
+        JsonObject jsonObject = new JsonParser().parse(temp).getAsJsonObject();
+
+        int id = jsonObject.get("idLekarz").getAsInt();
+
+        if (id > 0) {
+            Log.d("LoR id>0", id + "");
+            loginActivity.openMainActivity(id);
+        } else {
+            Log.d("LoR id<=0", id + "");
+            loginActivity.printWarn("Logowanie nie powiodło się [1]");
+        }
+
+    }
+
+
+    private void pacjentInfoOnResponse(JsonArray jsonArray, Activity a) {
+
+        MainActivity mainActivity = (MainActivity) a;
+
+        String temp = jsonArray.get(0).toString();
+
+        JsonObject jsonObject = new JsonParser().parse(temp).getAsJsonObject();
+
+        String imie = jsonObject.get("Imie").getAsString();
+        String nazwisko = jsonObject.get("Nazwisko").getAsString();
+        String dataurodzenia = jsonObject.get("dataUrodzenia").getAsString();
+        String Pesel = jsonObject.get("Pesel").getAsString();
+
+
+        mainActivity.PacjentInfo(imie, nazwisko, dataurodzenia, Pesel);
+
+
+    }
+//
+//    public static class dbFunctions extends AsyncTask<String, Integer, String> {
+//
+//        String typ = "";
+//        String res = "[{}]";
+//        private Activity activity;
+//
+//
+//        public dbFunctions(Activity activity, String typ) {
+//            this.activity = activity;
+//            this.typ = typ;
+//        }
+//
+//        @Override
+//        protected void onPreExecute() {
+//
+//            switch (typ) {
+//                case "login":
+//                    loginOnPreExecute();
+//                    break;
+//                case "wypelnijBelke":
+//                    wypelnijBelkeOnPreExecute();
+//                default:
+//                    Log.d("TYP", "Nierozpoznany typ " + typ);
+//                    break;
+//            }
+//        }
+//
+//        //onPreExecute for login
+//        protected void loginOnPreExecute() {
+//            LoginActivity loginActivity = (LoginActivity) this.activity;
+//            loginActivity.printWarn("Logowanie w toku");
+//            loginActivity.disableLoginButton();
+//        }
+//
+//        ;
+//
+//        protected void wypelnijBelkeOnPreExecute() {
+//        }
+//
+//        @Override
+//        protected String doInBackground(String... strings) {
+//            String toRet = "";
+//
+//
+//            switch (typ) {
+//                case "login":
+//                    toRet = loginDoInBackground(strings);
+//
+//                    break;
+//                case "wypelnijBelke":
+//                    toRet = wypelnijBelkeDoInBackground(strings);
+//            }
+//
+//            res = toRet;
+//            Log.d("DIB ret", res);
+//            return toRet;
+//        }
+//
+//
+//        // doInBackground for login
+//        protected String loginDoInBackground(String... strings) {
+//
+//            final String login = strings[0];
+//            final String password = strings[1];
+//            res = "";
+//
+//            RequestQueue requsetqueue = Volley.newRequestQueue(this.activity.getApplicationContext());
+//
+//            final String api = "https://nadirdoc.herokuapp.com/api/login";
+//
+//            StringRequest postRequest = new StringRequest(Method.POST, api,
+//                    new Response.Listener<String>() {
+//
+//
+//                        @Override
+//                        public void onResponse(String response) {
+//                            Log.d("Response", response);
+//
+//                            res = response;
+//
+//                        }
+//                    },
+//                    new Response.ErrorListener() {
+//                        @Override
+//                        public void onErrorResponse(VolleyError error) {
+//                            Log.d("Error.Response", error.getMessage());
+//                        }
+//                    }) {
+//                @Override
+//                protected Map<String, String> getParams() {
+//                    Map<String, String> params = new HashMap<String, String>();
+//                    params.put("login", login);
+//                    params.put("hashPass", md5(password));
+//
+//                    return params;
+//
+//                }
+//            };
+//            //add to the request queue
+//            requsetqueue.add(postRequest);
+//
+//
+//            return res;
+//
+//        }
+//
+//        // doInBackground for Belka
+//        protected String wypelnijBelkeDoInBackground(String... strings) {
+//            res = "";
+//            final String idPacjent = strings[0];
+//
+//            RequestQueue requsetqueue = Volley.newRequestQueue(this.activity.getApplicationContext());
+//
+//            final String api = "https://nadirdoc.herokuapp.com/api/pacjentInfo";
+//
+//            StringRequest postRequest = new StringRequest(Method.POST, api,
+//                    new Response.Listener<String>() {
+//                        @Override
+//                        public void onResponse(String response) {
+//                            Log.d("Response", response);
+//                            res = response;
+//
+//                        }
+//                    },
+//                    new Response.ErrorListener() {
+//                        @Override
+//                        public void onErrorResponse(VolleyError error) {
+//                            Log.d("Error.Response", error.getMessage());
+//                        }
+//                    }) {
+//                @Override
+//                protected Map<String, String> getParams() {
+//                    Map<String, String> params = new HashMap<String, String>();
+//                    params.put("idPacjent", idPacjent);
+//
+//
+//                    return params;
+//
+//                }
+//            };
+//            //add to the request queue
+//            requsetqueue.add(postRequest);
+//
+//
+//            return res;
+//
+//        }
+//
+//
+//        @Override
+//        protected void onPostExecute(String result) {
+//            Log.d("onPostResult", result);
+//            switch (typ) {
+//
+//                case "login":
+//                    loginOnPostExecute(result);
+//                    break;
+//                case "wypelnijBelke":
+//                    wypelnijBelkeOnPostExecute(result);
+//            }
+//
+//        }
+//
+//        private void loginOnPostExecute(String result) {
+//            // int id = result.intValue();
+//            String res = result;
+//            LoginActivity loginActivity = (LoginActivity) this.activity;
+//            loginActivity.enableLoginButton();
+//            Log.d("PostLAS", ":" + res);
+//
+//            if (new JsonParser().parse(result).isJsonObject()) {
+//                JsonObject jsonObject = new JsonParser().parse(result).getAsJsonObject();
+//
+//
+//                int id = jsonObject.get("idLekarz").getAsInt();
+//                Log.d("logPost id", id + "");
+//                if (id > 0) {
+//                    loginActivity.openMainActivity(id);
+//                } else {
+//                    loginActivity.printWarn("Logowanie nie powiodło się [1]");
+//                }
+//
+//            } else {
+//                loginActivity.printWarn("Logowanie nie powiodło się [2]");
+//            }
+//        }
+//
+//        private void wypelnijBelkeOnPostExecute(String result) {
+//            // int id = result.intValue();
+//            String res = result;
+//            MainActivity mainActivity = (MainActivity) this.activity;
+//
+//            if (new JsonParser().parse(result).isJsonObject()) {
+//                JsonObject jsonObject = new JsonParser().parse(result).getAsJsonObject();
+//
+//
+//                String imie = jsonObject.get("Imie").getAsString();
+//                String nazwisko = jsonObject.get("Nazwisko").getAsString();
+//                String dataurodzenia = jsonObject.get("dataUrodzenia").getAsString();
+//                String Pesel = jsonObject.get("Pesel").getAsString();
+//
+//
+//                mainActivity.PacjentInfo(imie, nazwisko, dataurodzenia, Pesel);
+//
+//            }
+//        }
+//    }
+//
+
 }
