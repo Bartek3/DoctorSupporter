@@ -29,6 +29,7 @@
                 android:src="@mipmap/blankav" />
 
             <TextView
+                android:id="@+id/lekarzImieNazwiskoTV"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="30dp"
@@ -76,11 +77,11 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/peselTV"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
                     android:gravity=""
-                    android:text="PESEL: 94010101112"
                     android:textColor="@android:color/white"
                     android:textSize="11sp"
                     android:textStyle="bold" />

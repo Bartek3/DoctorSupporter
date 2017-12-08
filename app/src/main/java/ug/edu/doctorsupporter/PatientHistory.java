@@ -9,9 +9,16 @@ import android.view.ViewGroup;
 
 public class PatientHistory extends Fragment {
 
+
     private int idDolegliwosci;
-    private String dataDolegliwosci;
     private String statusDolegliwosci; // wyleczone, niewyleczone itp
+    private String rozpoznanieKliniczne;
+    private String opisDolegliwosci;
+    private String dataDolegliwosciOD;
+    private String dataDolegliwosciDO;
+    private String zalecenia;
+    private String lekarzProwadzacy;
+
 
     public int getIdDolegliwosci() {
         return idDolegliwosci;
@@ -21,28 +28,12 @@ public class PatientHistory extends Fragment {
         this.idDolegliwosci = idDolegliwosci;
     }
 
-    public String getDataDolegliwosci() {
-        return dataDolegliwosci;
-    }
-
-    public void setDataDolegliwosci(String dataDolegliwosci) {
-        this.dataDolegliwosci = dataDolegliwosci;
-    }
-
     public String getStatusDolegliwosci() {
         return statusDolegliwosci;
     }
 
     public void setStatusDolegliwosci(String statusDolegliwosci) {
         this.statusDolegliwosci = statusDolegliwosci;
-    }
-
-    public String getZrealizowaneBadnaia() {
-        return zrealizowaneBadnaia;
-    }
-
-    public void setZrealizowaneBadnaia(String zrealizowaneBadnaia) {
-        this.zrealizowaneBadnaia = zrealizowaneBadnaia;
     }
 
     public String getRozpoznanieKliniczne() {
@@ -93,13 +84,9 @@ public class PatientHistory extends Fragment {
         this.lekarzProwadzacy = lekarzProwadzacy;
     }
 
-    private String zrealizowaneBadnaia;
-    private String rozpoznanieKliniczne;
-    private String opisDolegliwosci;
-    private String dataDolegliwosciOD;
-    private String dataDolegliwosciDO;
-    private String zalecenia;
-    private String lekarzProwadzacy;
+
+
+
 
 
 

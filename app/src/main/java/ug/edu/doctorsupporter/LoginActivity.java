@@ -36,7 +36,7 @@ public class LoginActivity extends AppCompatActivity {
        String[] params = {login,password};
         dbc.task(this,"login",params);
        Log.d("Alt","AAA");
-      //  openMainActivity(1);
+      //openMainActivity(1);
          //  userId = dbc.login(login, password);
        // openMainActivity(userId); // wejscie
 //        if(userId>0){
