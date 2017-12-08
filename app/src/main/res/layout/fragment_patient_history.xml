@@ -60,24 +60,6 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="15dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:textColor="@android:color/background_light"
-                    android:text="Przedmiot badania"/>
-
-                <Spinner
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"></Spinner>
-
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -95,7 +77,7 @@
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="110dp"
+                    android:layout_height="120dp"
                     android:textColor="@android:color/black"
                     android:background="@android:color/white"/>
 
@@ -118,7 +100,7 @@
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="110dp"
+                    android:layout_height="120dp"
                     android:textColor="@android:color/black"
                     android:background="@android:color/white"/>
 
@@ -140,11 +122,37 @@
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="110dp"
+                    android:layout_height="120dp"
                     android:textColor="@android:color/black"
                     android:background="@android:color/white"/>
 
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="6dp"
+                    android:textColor="@android:color/background_light"
+                    android:text="Lekarz prowadzący: "/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginLeft="6dp"
+                    android:textColor="@android:color/background_light"
+                    android:text="Józef Frankenstein"/>
+
+            </LinearLayout>
+
 
 
         </LinearLayout>
