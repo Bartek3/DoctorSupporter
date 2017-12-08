@@ -96,6 +96,8 @@ public class MainActivity extends AppCompatActivity {
                     return new PatientDiseases();
                 case 4:
                     return new PatientBalance();
+                case 5:
+                    return new PatientFoodInterview();
 
                 default:
                     return null;
@@ -104,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            return 5;
+            return 6;
         }
     }
 
