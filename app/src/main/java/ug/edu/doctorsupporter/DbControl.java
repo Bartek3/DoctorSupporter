@@ -69,7 +69,7 @@ class DbControl {
 
                     @Override
                     public void onResponse(String response) {
-                        Log.d("ResponseAAA", response);
+                        Log.d("ResponseAAA", response+" "+api);
 
                         if (isJSONValid(response)) {
                             Log.d("CheckJSON", "VALID");
@@ -84,6 +84,10 @@ class DbControl {
                                     case "belka":
                                         pacjentInfoOnResponse(jsonArray, a);
                                         break;
+                                    case"belka1":
+                                        getLekarzInfoOnResponse(jsonArray,a);
+                                    case"belka2":
+                                        getPacjentWiekOnResponse(jsonArray,a);
 
                                 }
                             }
@@ -107,6 +111,12 @@ class DbControl {
                         break;
                     case "pacjentInfo":
                         params = pacjentInfoParams(par);
+                        break;
+                    case "getLekarzInfo":
+                        params = getLekarzInfoParams(par);
+                        break;
+                    case "getPacjentWiek":
+                        params = getPacjentWiekParams(par);
                         break;
                 }
                 Log.d("getParams", params.toString());
@@ -136,6 +146,20 @@ class DbControl {
         params.put("login", login);
         params.put("hashPass", md5(password));
 
+        return params;
+    }
+
+    private Map<String,String> getLekarzInfoParams(String[] par) {
+        String idLekarz= par[0];
+        Map<String, String> params = new HashMap<String, String>();
+        params.put("idLekarz", idLekarz);
+        return params;
+    }
+
+    private Map<String,String> getPacjentWiekParams(String[] par) {
+        String idPacjent= par[0];
+        Map<String, String> params = new HashMap<String, String>();
+        params.put("idPacjent", idPacjent);
         return params;
     }
 
@@ -176,6 +200,44 @@ class DbControl {
 
         mainActivity.PacjentInfo(imie, nazwisko, dataurodzenia, Pesel);
 
+
+    }
+
+    private void getLekarzInfoOnResponse(JsonArray jsonArray, Activity a) {
+
+        MainActivity mainActivity = (MainActivity) a;
+
+        String temp = jsonArray.get(0).toString();
+
+        JsonObject jsonObject = new JsonParser().parse(temp).getAsJsonObject();
+
+        String imie = jsonObject.get("imie").getAsString();
+        String nazwisko = jsonObject.get("nazwisko").getAsString();
+        String tytuł = jsonObject.get("tytuł").getAsString();
+        String Specjalnosc_idSpecjalnosc = jsonObject.get("Specjalnosc_idSpecjalnosc").getAsString();
+
+
+        mainActivity.getLekarzInfo(imie, nazwisko, tytuł, Specjalnosc_idSpecjalnosc);
+
+        Log.d("ERROR", jsonArray.toString());
+
+    }
+
+    private void getPacjentWiekOnResponse(JsonArray jsonArray, Activity a) {
+
+        MainActivity mainActivity = (MainActivity) a;
+
+        String temp = jsonArray.get(0).toString();
+
+        JsonObject jsonObject = new JsonParser().parse(temp).getAsJsonObject();
+
+        int sliwka = jsonObject.get("wiek").getAsInt();
+
+        String wiek = sliwka+ "";
+
+        mainActivity.getPacjentWiek(wiek);
+
+        Log.d("getPacjentWiek lkjjjhgfdghjkl", jsonArray.toString());
 
     }
 //

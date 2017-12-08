@@ -43,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
 
         dbc=new DbControl();
         dbc.task(this,"belka","pacjentInfo","1");
+
+        dbc.task(this,"belka1","getLekarzInfo","1");
+        dbc.task(this,"belka2","getPacjentWiek","1");
         //new DbControl.dbFunctions(this,"wypelnijBelke").execute("0"); // pobieramy z bazy cały szmelc 1 pacjent
     }
 
@@ -116,6 +119,27 @@ public class MainActivity extends AppCompatActivity {
 //        wyswietlImie.setText(imie);
 
     }
+
+    public void getLekarzInfo(String imie, String nazwisko, String tytuł, String Specjalnosc_idSpecjalnosc) {
+
+        TextView wyswietlImie = (TextView) findViewById(R.id.lekarzImieNazwiskoTV);
+
+        wyswietlImie.setText(tytuł+' '+imie +' '+nazwisko);
+
+
+    }
+
+    public void getPacjentWiek(String wiek) {
+
+        TextView wyswietl = (TextView) findViewById(R.id.wiekPacjentaTV);
+
+        wyswietl.setText(wiek);
+
+
+    }
+
+
+
 
    // string imieDB =
 
