@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:tools="http://schemas.android.com/tools"
-android:id="@+id/GridLayout1"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:background="@color/colorPrimaryDark"
-android:columnCount="2"
-tools:context=".PatientData">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/GridLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:columnCount="2"
+    tools:context=".PatientData">
 
 
     <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_margin="15dp"
         android:columnCount="5">
 
         <TextView
@@ -174,7 +174,7 @@ tools:context=".PatientData">
             android:layout_gravity="center_vertical"
             android:layout_margin="10dp"
             android:layout_row="6"
-
+            android:text="% tłuszczu w organiźmie"
             android:textColor="@android:color/background_light"
             android:textSize="20sp" />
 

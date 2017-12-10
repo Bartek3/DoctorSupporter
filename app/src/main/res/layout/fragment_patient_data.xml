@@ -11,32 +11,33 @@
     <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="15dp"
         android:columnCount="2">
 
         <TextView
             android:id="@+id/imieTextV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:layout_column="0"
-            android:layout_gravity="center"
-            android:layout_margin="3pt"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="10dp"
             android:layout_row="0"
             android:text="@string/imieTextV"
             android:textColor="@android:color/background_light"
-            android:textSize="12sp" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/imieValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="1"
-            android:layout_gravity="center"
-            android:layout_margin="3pt"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="10dp"
+            android:layout_marginLeft="20dp"
             android:layout_row="0"
             android:text="Janusz"
             android:textColor="@android:color/background_light"
-            android:textSize="12sp" />
+            android:textSize="20sp" />
 
 
         <TextView
@@ -44,12 +45,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="0"
-            android:layout_gravity="center"
-            android:layout_margin="3pt"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="10dp"
             android:layout_row="1"
             android:text="@string/nazwiskoTextV"
             android:textColor="@android:color/background_light"
-            android:textSize="12sp" />
+            android:textSize="20sp" />
 
 
         <TextView
@@ -57,24 +58,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="1"
-            android:layout_gravity="center"
-            android:layout_margin="3pt"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="10dp"
+            android:layout_marginLeft="20dp"
             android:layout_row="1"
-            android:text="Hebata"
+            android:text="Herbata"
             android:textColor="@android:color/background_light"
-            android:textSize="12sp"/>
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/dataUroTextV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="0"
-            android:layout_gravity="center"
-            android:layout_margin="3pt"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="10dp"
             android:layout_row="2"
             android:text="@string/dataUroTextV"
             android:textColor="@android:color/background_light"
-            android:textSize="12sp" />
+            android:textSize="20sp" />
 
 
         <TextView
@@ -82,25 +84,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="1"
-            android:layout_gravity="center"
-            android:layout_margin="3pt"
-
+            android:layout_gravity="center_vertical"
+            android:layout_margin="10dp"
+            android:layout_marginLeft="20dp"
             android:layout_row="2"
             android:text="01.01.1991"
             android:textColor="@android:color/background_light"
-            android:textSize="12sp" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/peselTextV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="0"
-            android:layout_gravity="center"
-            android:layout_margin="3pt"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="10dp"
             android:layout_row="3"
             android:text="@string/peselTextV"
             android:textColor="@android:color/background_light"
-            android:textSize="12sp"  />
+            android:textSize="20sp" />
 
 
         <TextView
@@ -108,74 +110,104 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="1"
-            android:layout_gravity="center"
-            android:layout_margin="5pt"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="10dp"
+            android:layout_marginLeft="20dp"
             android:layout_row="3"
             android:text="91010122930"
             android:textColor="@android:color/background_light"
-            android:textSize="12sp"  />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/adresZamieszkaniaTextV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="0"
-            android:layout_gravity="center"
-            android:layout_margin="3pt"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="10dp"
             android:layout_row="4"
             android:text="@string/adresZamieszkaniaTextV"
             android:textColor="@android:color/background_light"
-            android:textSize="12sp"  />
+            android:textSize="20sp" />
 
+
+        <TextView
+            android:id="@+id/adresZamieszkaniaValue1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_row="4"
+            android:text="ul. Świetna 9"
+            android:textColor="@android:color/background_light"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/adresZamieszkaniaValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="1"
-            android:layout_gravity="center"
-            android:layout_margin="5pt"
-            android:layout_row="4"
-            android:text="ul. Świetna 9, 90-102 Kasztaniaki"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_row="5"
+            android:text="90-102 Kasztaniaki"
             android:textColor="@android:color/background_light"
-            android:textSize="12sp"  />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/adresKorTextV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="0"
-            android:layout_gravity="center"
-            android:layout_margin="3pt"
-            android:layout_row="5"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="10dp"
+            android:layout_row="6"
             android:text="@string/adresKorTextV"
             android:textColor="@android:color/background_light"
-            android:textSize="12sp"  />
+            android:textSize="20sp" />
 
 
         <TextView
-            android:id="@+id/adresKorValue"
+            android:id="@+id/adresKorValue1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="1"
-            android:layout_gravity="center"
-            android:layout_margin="5pt"
-            android:layout_row="5"
-            android:text="ul. Mleczna 12/11, 21-222 Kocie Budy"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_row="6"
+            android:text="ul. Mleczna 12/11"
             android:textColor="@android:color/background_light"
-            android:textSize="12sp" />
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/adresKorValue2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_row="7"
+            android:text="21-222 Kocie Budy"
+            android:textColor="@android:color/background_light"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/oddzialNFZtextV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="0"
-            android:layout_gravity="center"
-            android:layout_margin="3pt"
-            android:layout_row="6"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="10dp"
+            android:layout_row="8"
+
             android:text="@string/oddzialNFZtext"
             android:textColor="@android:color/background_light"
-            android:textSize="12sp"  />
+            android:textSize="20sp" />
 
 
         <TextView
@@ -183,24 +215,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="1"
-            android:layout_gravity="center"
-            android:layout_margin="5pt"
-            android:layout_row="6"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_row="8"
             android:text="11"
             android:textColor="@android:color/background_light"
-            android:textSize="12sp" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/telefonDoKontaktuTextV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="0"
-            android:layout_gravity="center"
-            android:layout_margin="3pt"
-            android:layout_row="7"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="10dp"
+            android:layout_row="9"
             android:text="@string/telefonDoKontaktuTextV"
             android:textColor="@android:color/background_light"
-            android:textSize="12sp"  />
+            android:textSize="20sp" />
 
 
         <TextView
@@ -208,12 +241,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="1"
-            android:layout_gravity="center"
-            android:layout_margin="5pt"
-            android:layout_row="7"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_row="9"
             android:text="503 829 910"
             android:textColor="@android:color/background_light"
-            android:textSize="12sp"  />
+            android:textSize="20sp" />
 
 
     </GridLayout>
