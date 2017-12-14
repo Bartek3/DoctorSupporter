@@ -86,8 +86,10 @@ class DbControl {
                                         break;
                                     case"belka1":
                                         getLekarzInfoOnResponse(jsonArray,a);
-//                                    case"belka2":
-//                                        getPacjentWiekOnResponse(jsonArray,a);
+                                        break;
+                                    case"belka2":
+                                        getPacjentWiekOnResponse(jsonArray,a);
+                                        break;
 
                                 }
                             }
@@ -116,7 +118,7 @@ class DbControl {
                         params = getLekarzInfoParams(par);
                         break;
                     case "getPacjentWiek":
-                        //params = getPacjentWiekParams(par);
+                        params = getPacjentWiekParams(par);
                         break;
                 }
                 Log.d("getParams", params.toString());
@@ -156,12 +158,12 @@ class DbControl {
         return params;
     }
 
-//    private Map<String,String> getPacjentWiekParams(String[] par) {
-//        String idPacjent= par[0];
-//        Map<String, String> params = new HashMap<String, String>();
-//        params.put("idPacjent", idPacjent);
-//        return params;
-//    }
+    private Map<String,String> getPacjentWiekParams(String[] par) {
+        String idPacjent= par[0];
+        Map<String, String> params = new HashMap<String, String>();
+        params.put("idPacjent", idPacjent);
+        return params;
+    }
 
     private void loginOnResponse(JsonArray jsonArray, Activity a) {
         LoginActivity loginActivity = (LoginActivity) a;
@@ -223,20 +225,20 @@ class DbControl {
 
     }
 
-//    private void getPacjentWiekOnResponse(JsonArray jsonArray, Activity a) {
-//
-//        MainActivity mainActivity = (MainActivity) a;
-//
-//        String temp = jsonArray.get(0).toString();
-//
-//        JsonObject jsonObject = new JsonParser().parse(temp).getAsJsonObject();
-//
-//        int sliwka = jsonObject.get("wiek").getAsInt();
-//
-//        String wiek = sliwka+ "";
-//
-//        mainActivity.getPacjentWiek(wiek);
-//    }
+    private void getPacjentWiekOnResponse(JsonArray jsonArray, Activity a) {
+        Log.d("gpwor",jsonArray.toString());
+        MainActivity mainActivity = (MainActivity) a;
+
+        String temp = jsonArray.get(0).toString();
+
+        JsonObject jsonObject = new JsonParser().parse(temp).getAsJsonObject();
+        Log.d("gpwor",jsonObject.toString());
+        int sliwka = jsonObject.get("wiek").getAsInt();
+
+        String wiek = sliwka+ "";
+
+        mainActivity.getPacjentWiek(wiek);
+    }
 
 
 

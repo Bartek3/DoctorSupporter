@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
 
         TextView wyswietl = (TextView) findViewById(R.id.wiekPacjentaTV);
 
-        wyswietl.setText(wiek);
+        wyswietl.setText("Wiek: "+wiek);
 
 
     }

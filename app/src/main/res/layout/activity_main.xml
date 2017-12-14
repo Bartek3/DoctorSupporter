@@ -72,12 +72,13 @@
                     android:layout_height="match_parent"
                     android:layout_marginRight="10dp"
                     android:gravity=""
-                    android:text="Wiek: 23"
+                    android:text=""
                     android:textColor="@android:color/white"
                     android:textSize="11sp"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/peselPacjentaTV"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
