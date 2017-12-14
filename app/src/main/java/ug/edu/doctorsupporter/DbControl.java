@@ -86,14 +86,14 @@ class DbControl {
                                         break;
                                     case"belka1":
                                         getLekarzInfoOnResponse(jsonArray,a);
-                                    case"belka2":
-                                        getPacjentWiekOnResponse(jsonArray,a);
+//                                    case"belka2":
+//                                        getPacjentWiekOnResponse(jsonArray,a);
 
                                 }
                             }
 
                         }
-//
+
                     }
                 },
                 new Response.ErrorListener() {
@@ -116,7 +116,7 @@ class DbControl {
                         params = getLekarzInfoParams(par);
                         break;
                     case "getPacjentWiek":
-                        params = getPacjentWiekParams(par);
+                        //params = getPacjentWiekParams(par);
                         break;
                 }
                 Log.d("getParams", params.toString());
@@ -156,12 +156,12 @@ class DbControl {
         return params;
     }
 
-    private Map<String,String> getPacjentWiekParams(String[] par) {
-        String idPacjent= par[0];
-        Map<String, String> params = new HashMap<String, String>();
-        params.put("idPacjent", idPacjent);
-        return params;
-    }
+//    private Map<String,String> getPacjentWiekParams(String[] par) {
+//        String idPacjent= par[0];
+//        Map<String, String> params = new HashMap<String, String>();
+//        params.put("idPacjent", idPacjent);
+//        return params;
+//    }
 
     private void loginOnResponse(JsonArray jsonArray, Activity a) {
         LoginActivity loginActivity = (LoginActivity) a;
@@ -223,23 +223,42 @@ class DbControl {
 
     }
 
-    private void getPacjentWiekOnResponse(JsonArray jsonArray, Activity a) {
+//    private void getPacjentWiekOnResponse(JsonArray jsonArray, Activity a) {
+//
+//        MainActivity mainActivity = (MainActivity) a;
+//
+//        String temp = jsonArray.get(0).toString();
+//
+//        JsonObject jsonObject = new JsonParser().parse(temp).getAsJsonObject();
+//
+//        int sliwka = jsonObject.get("wiek").getAsInt();
+//
+//        String wiek = sliwka+ "";
+//
+//        mainActivity.getPacjentWiek(wiek);
+//    }
 
-        MainActivity mainActivity = (MainActivity) a;
 
-        String temp = jsonArray.get(0).toString();
 
-        JsonObject jsonObject = new JsonParser().parse(temp).getAsJsonObject();
 
-        int sliwka = jsonObject.get("wiek").getAsInt();
 
-        String wiek = sliwka+ "";
 
-        mainActivity.getPacjentWiek(wiek);
+//    private void getPacjentWiekOnResponse(JsonArray jsonArray, Activity a) {
+//
+//        MainActivity mainActivity = (MainActivity) a;
+//
+//        String temp = jsonArray.get(0).toString();
+//
+//        JsonObject jsonObject = new JsonParser().parse(temp).getAsJsonObject();
+//
+//        String wiek = jsonObject.get("wiek").getAsString();
+//
+//        mainActivity.getPacjentWiek(wiek);
+//
+//
+//    }
 
-        Log.d("getPacjentWiek lkjjjhgfdghjkl", jsonArray.toString());
 
-    }
 //
 //    public static class dbFunctions extends AsyncTask<String, Integer, String> {
 //
