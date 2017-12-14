@@ -90,6 +90,12 @@ class DbControl {
                                     case"belka2":
                                         getPacjentWiekOnResponse(jsonArray,a);
                                         break;
+//                                    case"belka3":
+//                                        getPacjentPeselOnResponse(jsonArray,a);
+//                                        break;
+                                    case"belka4":
+                                        getChorobyOnResponse(jsonArray,a);
+                                        break;
 
                                 }
                             }
@@ -119,6 +125,12 @@ class DbControl {
                         break;
                     case "getPacjentWiek":
                         params = getPacjentWiekParams(par);
+                        break;
+//                    case "getPacjentPesel":
+//                        params = getPacjentPeselParams(par);
+//                        break;
+                    case "getChoroby":
+                        params = getChorobyParams(par);
                         break;
                 }
                 Log.d("getParams", params.toString());
@@ -164,6 +176,21 @@ class DbControl {
         params.put("idPacjent", idPacjent);
         return params;
     }
+
+//    private Map<String,String> getPacjentPeselParams(String[] par) {
+//        String idPacjent= par[0];
+//        Map<String, String> params = new HashMap<String, String>();
+//        params.put("idPacjent", idPacjent);
+//        return params;
+//    }
+
+    private Map<String,String> getChorobyParams(String[] par) {
+        String idPacjent= par[0];
+        Map<String, String> params = new HashMap<String, String>();
+        params.put("idPacjent", idPacjent);
+        return params;
+    }
+
 
     private void loginOnResponse(JsonArray jsonArray, Activity a) {
         LoginActivity loginActivity = (LoginActivity) a;
@@ -240,7 +267,39 @@ class DbControl {
         mainActivity.getPacjentWiek(wiek);
     }
 
+//    private void getPacjentPeselOnResponse(JsonArray jsonArray, Activity a) {
+//
+//        MainActivity mainActivity = (MainActivity) a;
+//
+//        String temp = jsonArray.get(0).toString();
+//
+//        JsonObject jsonObject = new JsonParser().parse(temp).getAsJsonObject();
+//
+//        String pesel = jsonObject.get("pesel").getAsString();
+//
+//        mainActivity.getPacjentPesel(pesel);
+//
+//
+//    }
 
+
+    private void getChorobyOnResponse(JsonArray jsonArray, Activity a) {
+
+        MainActivity mainActivity = (MainActivity) a;
+
+        String temp = jsonArray.get(0).toString();
+
+        JsonObject jsonObject = new JsonParser().parse(temp).getAsJsonObject();
+
+        //String nazwaDolegliwosc = jsonObject.get("nazwaDolegliwosc").getAsString();
+        String uwagiDolegliwosc = jsonObject.get("uwagiDolegliwosc").getAsString();
+
+
+        mainActivity.getChoroby( uwagiDolegliwosc);
+
+
+
+    }
 
 
 

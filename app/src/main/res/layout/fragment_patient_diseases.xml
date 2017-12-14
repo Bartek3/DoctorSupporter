@@ -24,21 +24,25 @@
         android:layout_marginBottom="20dp"
         android:textColor="@android:color/white" />
 
-    <Spinner
-        android:id="@+id/listOfDiseases"
-        android:layout_margin="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"></Spinner>
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:layout_marginBottom="6dp"
             android:textColor="@android:color/background_light"
-            android:text="Uwagi:"/>
+            android:text="Status dolegliwości:"/>
+
+        <Spinner
+            android:id="@+id/listOfDiseases"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="20dp"
+            android:entries="@array/statusChoroby"
+            android:textColor="@android:color/background_light"
+            ></Spinner>
 
         <TextView
+            android:id="@+id/uwagiChorobyTV"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:textColor="@android:color/black"

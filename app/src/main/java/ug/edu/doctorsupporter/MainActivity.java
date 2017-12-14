@@ -17,12 +17,13 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-
+PatientDiseases PDS;
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
     DbControl dbc;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -111,7 +112,17 @@ public class MainActivity extends AppCompatActivity {
 
         TextView wyswietlImie = (TextView) findViewById(R.id.imieNazwiskoTV);
 
+
         wyswietlImie.setText(imie +' '+nazwisko);
+
+
+        TextView wyswietlPesel = (TextView) findViewById((R.id.peselPacjentaTV));
+        wyswietlPesel.setText("PESEL: "+Pesel);
+
+
+
+
+
 
 
 //        TextView wyswietlNaziwsko = (TextView) findViewById(R.id.imieNazwiskoTV);
@@ -137,17 +148,44 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+//    public void getPacjentPesel(String pesel) {
+//
+//        TextView wyswietl = (TextView) findViewById(R.id.peselPacjentaTV);
+//
+//        wyswietl.setText(pesel);
+//
+//
+//    }
+
+
+    public void getChoroby(String uwagiDolegliwosc) {
+      PDS.getChoroby(uwagiDolegliwosc);
+//
+//        TextView wyswietl = (TextView) findViewById(R.id.uwagiChorobyTV);
+//
+//
+//
+//        wyswietl.setText(uwagiDolegliwosc);
+
+//        TextView wyswietl2 = (TextView) findViewById(R.id.listOfDiseases);
+
+      //  wyswietl.setText(nazwaDolegliwosc);
+
+    }
+
+
     public void updateBelka(int lekarzId, int pacjentId ){
         dbc.task(this,"belka","pacjentInfo",lekarzId+"");
 
         dbc.task(this,"belka1","getLekarzInfo",pacjentId+"");
         dbc.task(this,"belka2","getPacjentWiek",pacjentId+"");
+        //dbc.task(this,"belka3","getPacjentPesel",pacjentId+"");
+        dbc.task(this,"belka4","getChoroby",pacjentId+"");
 
     }
 
 
 
-   // string imieDB =
 
 
 }

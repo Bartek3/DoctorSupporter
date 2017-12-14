@@ -33,5 +33,15 @@
     <string name="thigh">Udo</string>
     <string name="expectedMass">Masa oczekiwana</string>
 
+    // Patient diseases
+
+
+    <string-array name="statusChoroby">
+        <item>Nieokreślono</item>
+        <item>Niewyleczone</item>
+     <item>Wyleczone</item>
+    <item>W trakcie</item>
+    </string-array>
+
 
 </resources>
