@@ -42,11 +42,8 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
         dbc=new DbControl();
-        dbc.task(this,"belka","pacjentInfo","1");
+        updateBelka(1,1);
 
-        dbc.task(this,"belka1","getLekarzInfo","1");
-        dbc.task(this,"belka2","getPacjentWiek","1");
-        //new DbControl.dbFunctions(this,"wypelnijBelke").execute("0"); // pobieramy z bazy cały szmelc 1 pacjent
     }
 
     @Override
@@ -140,6 +137,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void updateBelka(int lekarzId, int pacjentId ){
+        dbc.task(this,"belka","pacjentInfo",lekarzId+"");
+
+        dbc.task(this,"belka1","getLekarzInfo",pacjentId+"");
+        dbc.task(this,"belka2","getPacjentWiek",pacjentId+"");
+
+    }
 
 
 
