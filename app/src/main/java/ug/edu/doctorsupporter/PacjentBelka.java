@@ -1,6 +1,12 @@
 package ug.edu.doctorsupporter;
 
-public class Pacjent {
+/**
+ * Created by Andrzej on 02.11.2017.
+ */
+
+
+
+public class PacjentBelka {
 
         private int id;
         private  String imie;
@@ -10,8 +16,9 @@ public class Pacjent {
         private int AdresZamieszkania;
         private int AdresKorespondencyjny;
         private int  OddzialNFZ;
+        private String sala;
 
-    public Pacjent (int id, String imie, String nazwisko, String dataurodzenia, String Pesel, int AdresZamieszkania,
+    public PacjentBelka (int id, String imie, String nazwisko, String dataurodzenia, String Pesel, int AdresZamieszkania,
                     int AdresKorespondencyjny, int OddzialNFZ) {
 
         this.id = id;

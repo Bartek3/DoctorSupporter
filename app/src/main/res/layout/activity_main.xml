@@ -29,12 +29,13 @@
                 android:src="@mipmap/blankav" />
 
             <TextView
+                android:id="@+id/lekarzImieNazwiskoTV"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="20dp"
                 android:gravity="center_vertical"
-                android:text="dr med. Jan Kowalski"
+                android:text=""
                 android:textColor="@android:color/white"
                 android:textSize="12sp"
                 android:textStyle="bold" />
@@ -51,10 +52,11 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/imieNazwiskoTV"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity=""
-                android:text="Janusz Herbata"
+                android:text="Jerzy Lubicz"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -65,16 +67,18 @@
                 android:layout_marginTop="4dp">
 
                 <TextView
+                    android:id="@+id/wiekPacjentaTV"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginRight="10dp"
                     android:gravity=""
-                    android:text="Wiek: 23"
+                    android:text=""
                     android:textColor="@android:color/white"
                     android:textSize="11sp"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/peselPacjentaTV"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
@@ -91,7 +95,7 @@
             android:id="@+id/tabs"
             style="@style/AppTabLayout"
             android:layout_width="match_parent"
-            android:layout_height="35dp">
+            android:layout_height="30dp">
 
             <android.support.design.widget.TabItem
                 android:id="@+id/tabItem"
@@ -122,6 +126,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Bilans" />
+
+            <android.support.design.widget.TabItem
+                android:id="@+id/tabItem6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Wywiad" />
 
         </android.support.design.widget.TabLayout>
 

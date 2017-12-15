@@ -14,14 +14,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-
+PatientDiseases PDS;
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
+    DbControl dbc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -39,6 +42,9 @@ public class MainActivity extends AppCompatActivity {
 
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
+
+        dbc=new DbControl();
+        updateBelka(1,1);
 
     }
 
@@ -89,6 +95,9 @@ public class MainActivity extends AppCompatActivity {
                     return new PatientDiseases();
                 case 4:
                     return new PatientBalance();
+                case 5:
+                    return new PatientFoodInterview();
+
                 default:
                     return null;
             }
@@ -96,7 +105,90 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            return 5;
+            return 6;
         }
     }
+
+    public void PacjentInfo(String imie, String nazwisko, String dataurodzenia, String Pesel) {
+
+        TextView wyswietlImie = (TextView) findViewById(R.id.imieNazwiskoTV);
+
+
+        wyswietlImie.setText(imie +' '+nazwisko);
+
+
+        TextView wyswietlPesel = (TextView) findViewById((R.id.peselPacjentaTV));
+        wyswietlPesel.setText("PESEL: "+Pesel);
+
+
+
+
+
+
+
+//        TextView wyswietlNaziwsko = (TextView) findViewById(R.id.imieNazwiskoTV);
+//        wyswietlImie.setText(imie);
+
+    }
+
+    public void getLekarzInfo(String imie, String nazwisko, String tytuł, String Specjalnosc_idSpecjalnosc) {
+
+        TextView wyswietlImie = (TextView) findViewById(R.id.lekarzImieNazwiskoTV);
+
+        wyswietlImie.setText(tytuł+' '+imie +' '+nazwisko);
+
+
+    }
+
+    public void getPacjentWiek(String wiek) {
+
+        TextView wyswietl = (TextView) findViewById(R.id.wiekPacjentaTV);
+
+        wyswietl.setText("Wiek: "+wiek);
+
+
+    }
+
+
+
+//    public void getPacjentPesel(String pesel) {
+//
+//        TextView wyswietl = (TextView) findViewById(R.id.peselPacjentaTV);
+//
+//        wyswietl.setText(pesel);
+//
+//
+//    }
+
+
+//    public void getChoroby(String uwagiDolegliwosc) {
+//      PDS.showChoroby(uwagiDolegliwosc);
+////
+////        TextView wyswietl = (TextView) findViewById(R.id.uwagiChorobyTV);
+////
+////
+////
+////        wyswietl.setText(uwagiDolegliwosc);
+//
+////        TextView wyswietl2 = (TextView) findViewById(R.id.listOfDiseases);
+//
+//      //  wyswietl.setText(nazwaDolegliwosc);
+//
+//    }
+
+
+    public void updateBelka(int lekarzId, int pacjentId ){
+        dbc.task(this,"belka","pacjentInfo",lekarzId+"");
+
+        dbc.task(this,"belka1","getLekarzInfo",pacjentId+"");
+        dbc.task(this,"belka2","getPacjentWiek",pacjentId+"");
+        //dbc.task(this,"belka3","getPacjentPesel",pacjentId+"");
+
+
+    }
+
+
+
+
+
 }
