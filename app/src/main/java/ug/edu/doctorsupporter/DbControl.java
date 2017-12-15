@@ -294,21 +294,21 @@ class DbControl {
 
                 String nazwaDolegliwosci = b.getAsJsonObject().get("nazwaDolegliwosci").getAsString();
                 String uwagiDolegliwosc = b.getAsJsonObject().get("uwagiDolegliwosc").getAsString();
-                ChorobyPacjenta.add(nazwaDolegliwosci);
+                nazwyChorobyPacjenta.add(nazwaDolegliwosci);
+                uwagiChorobyPacjenta.add(uwagiDolegliwosc);
             }
         }
 
+//
+//        String temp = jsonArray.get(index).toString();
+//
+//        JsonObject jsonObject = new JsonParser().parse(temp).getAsJsonObject();
+//        String nazwaDolegliwosci = jsonObject.get("nazwaDolegliwosci").getAsString();
+//        String uwagiDolegliwosc = jsonObject.get("uwagiDolegliwosc").getAsString();
 
-        String temp = jsonArray.get(index).toString();
 
-        JsonObject jsonObject = new JsonParser().parse(temp).getAsJsonObject();
-
-        String nazwaDolegliwosci = jsonObject.get("nazwaDolegliwosci").getAsString();
-        String uwagiDolegliwosc = jsonObject.get("uwagiDolegliwosc").getAsString();
-
-
-        mainActivity.showChoroby(uwagiDolegliwosc);
-        mainActivity.showNazwaChoroby(nazwaDolegliwosci);
+        mainActivity.showChoroby(uwagiChorobyPacjenta.toString());
+        mainActivity.showNazwaChoroby(nazwyChorobyPacjenta.toString());
 
 
     }
