@@ -1,6 +1,7 @@
 package ug.edu.doctorsupporter;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -35,7 +36,6 @@ class DbControl {
         }
     }
 
-
     public static String md5(String s) {
         try {
             // Create MD5 Hash
@@ -56,10 +56,22 @@ class DbControl {
     }
 
     public void task(final Object a, final String whattodo,final String api, final String... par) {
-
+        RequestQueue queue;
 
         Log.d("dbc task", api + ": " + par.toString());
-        RequestQueue queue = Volley.newRequestQueue((Activity)a);
+
+        //if( a.getClass().isAssignableFrom(Fragment.class)){
+        
+
+        if(a instanceof PatientDiseases){
+            Log.d("tskISAFrag","TRUE");
+            queue = Volley.newRequestQueue((((PatientDiseases) a).getActivity()));
+
+        }
+        else {
+            Log.d("tskISAFrag","False");
+             queue = Volley.newRequestQueue((Activity) a);
+        }
         final String url = "https://nadirdoc.herokuapp.com/api/" + api;
 
 
@@ -267,20 +279,7 @@ class DbControl {
         mainActivity.getPacjentWiek(wiek);
     }
 
-//    private void getPacjentPeselOnResponse(JsonArray jsonArray, Activity a) {
-//
-//        MainActivity mainActivity = (MainActivity) a;
-//
-//        String temp = jsonArray.get(0).toString();
-//
-//        JsonObject jsonObject = new JsonParser().parse(temp).getAsJsonObject();
-//
-//        String pesel = jsonObject.get("pesel").getAsString();
-//
-//        mainActivity.getPacjentPesel(pesel);
-//
-//
-//    }
+
 
 
     private void getChorobyOnResponse(JsonArray jsonArray, Object a) {
@@ -297,7 +296,7 @@ class DbControl {
 
         mainActivity.showChoroby( uwagiDolegliwosc);
 
-
+        
 
     }
 

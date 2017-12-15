@@ -21,6 +21,7 @@ PatientDiseases PDS;
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
     DbControl dbc;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppTheme);
