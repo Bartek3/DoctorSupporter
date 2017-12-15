@@ -17,7 +17,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-PatientDiseases PDS;
+    PatientDiseases PDS;
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
     DbControl dbc;
@@ -43,8 +43,8 @@ PatientDiseases PDS;
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
-        dbc=new DbControl();
-        updateBelka(1,1);
+        dbc = new DbControl();
+        updateBelka(1, 1);
 
     }
 
@@ -84,7 +84,7 @@ PatientDiseases PDS;
 
         @Override
         public Fragment getItem(int position) {
-            switch (position){
+            switch (position) {
                 case 0:
                     return new PatientData();
                 case 1:
@@ -114,28 +114,20 @@ PatientDiseases PDS;
         TextView wyswietlImie = (TextView) findViewById(R.id.imieNazwiskoTV);
 
 
-        wyswietlImie.setText(imie +' '+nazwisko);
+        wyswietlImie.setText(imie + ' ' + nazwisko);
 
 
         TextView wyswietlPesel = (TextView) findViewById((R.id.peselPacjentaTV));
-        wyswietlPesel.setText("PESEL: "+Pesel);
-
-
-
-
-
-
-
-//        TextView wyswietlNaziwsko = (TextView) findViewById(R.id.imieNazwiskoTV);
-//        wyswietlImie.setText(imie);
+        wyswietlPesel.setText("PESEL: " + Pesel);
 
     }
+
 
     public void getLekarzInfo(String imie, String nazwisko, String tytuł, String Specjalnosc_idSpecjalnosc) {
 
         TextView wyswietlImie = (TextView) findViewById(R.id.lekarzImieNazwiskoTV);
 
-        wyswietlImie.setText(tytuł+' '+imie +' '+nazwisko);
+        wyswietlImie.setText(tytuł + ' ' + imie + ' ' + nazwisko);
 
 
     }
@@ -144,12 +136,28 @@ PatientDiseases PDS;
 
         TextView wyswietl = (TextView) findViewById(R.id.wiekPacjentaTV);
 
-        wyswietl.setText("Wiek: "+wiek);
+        wyswietl.setText("Wiek: " + wiek);
 
 
     }
 
 
+    public void updateBelka(int lekarzId, int pacjentId) {
+        dbc.task(this, "belka", "pacjentInfo", lekarzId + "");
+
+        dbc.task(this, "belka1", "getLekarzInfo", pacjentId + "");
+        dbc.task(this, "belka2", "getPacjentWiek", pacjentId + "");
+        //dbc.task(this,"belka3","getPacjentPesel",pacjentId+"");
+
+
+    }
+
+
+}
+
+
+//        TextView wyswietlNaziwsko = (TextView) findViewById(R.id.imieNazwiskoTV);
+//        wyswietlImie.setText(imie);
 
 //    public void getPacjentPesel(String pesel) {
 //
@@ -175,20 +183,3 @@ PatientDiseases PDS;
 //      //  wyswietl.setText(nazwaDolegliwosc);
 //
 //    }
-
-
-    public void updateBelka(int lekarzId, int pacjentId ){
-        dbc.task(this,"belka","pacjentInfo",lekarzId+"");
-
-        dbc.task(this,"belka1","getLekarzInfo",pacjentId+"");
-        dbc.task(this,"belka2","getPacjentWiek",pacjentId+"");
-        //dbc.task(this,"belka3","getPacjentPesel",pacjentId+"");
-
-
-    }
-
-
-
-
-
-}

@@ -67,12 +67,16 @@ class DbControl {
         //if( a.getClass().isAssignableFrom(Fragment.class)){
 
 
-        if (a instanceof PatientDiseases) {
-            Log.d("tskISAFrag", "TRUE");
+        if (a instanceof PatientDiseases)  {
+            Log.d("tskISAFrag", "TRUE"+whattodo);
             queue = Volley.newRequestQueue((((PatientDiseases) a).getActivity()));
 
+        } else if (a instanceof PatientData) {
+            Log.d("tskISAFrag", "TRUE"+whattodo);
+            queue = Volley.newRequestQueue((((PatientData) a).getActivity()));
+
         } else {
-            Log.d("tskISAFrag", "False");
+            Log.d("tskISAFrag", "False"+whattodo);
             queue = Volley.newRequestQueue((Activity) a);
         }
         final String url = "https://nadirdoc.herokuapp.com/api/" + api;
@@ -111,6 +115,15 @@ class DbControl {
                                     case "belka4":
                                         getChorobyOnResponse(jsonArray, a, Integer.valueOf(par[par.length - 1]));
                                         break;
+                                    case "belka5":
+                                        getPatientDataOnResponse(jsonArray, a);
+                                        break;
+                                    case "belka6":
+                                        getpacjentAdresOnResponse(jsonArray, a);
+                                        break;
+                                    case "belka7":
+                                        getpacjentAdresKorespondencyjnyDataOnResponse(jsonArray, a);
+                                        break;
 
                                 }
                             }
@@ -146,6 +159,12 @@ class DbControl {
 //                        break;
                     case "getChoroby":
                         params = getChorobyParams(par);
+                        break;
+                    case "pacjentAdres":
+                        params = getPacjentWiekParams(par);
+                        break;
+                    case "pacjentAdresKorespondencyjny":
+                        params = getPacjentWiekParams(par);
                         break;
                 }
                 Log.d("getParams", params.toString());
@@ -243,7 +262,6 @@ class DbControl {
 
         mainActivity.PacjentInfo(imie, nazwisko, dataurodzenia, Pesel);
 
-
     }
 
     private void getLekarzInfoOnResponse(JsonArray jsonArray, Activity a) {
@@ -288,7 +306,7 @@ class DbControl {
         ArrayList<String> uwagiChorobyPacjenta = new ArrayList<>();
 
 
-        PatientDiseases mainActivity = (PatientDiseases) a;
+        PatientDiseases patientDiseases = (PatientDiseases) a;
         for (JsonElement b : jsonArray) {
             if (b.isJsonObject()) {
 
@@ -305,14 +323,63 @@ class DbControl {
 //        JsonObject jsonObject = new JsonParser().parse(temp).getAsJsonObject();
 //        String nazwaDolegliwosci = jsonObject.get("nazwaDolegliwosci").getAsString();
 //        String uwagiDolegliwosc = jsonObject.get("uwagiDolegliwosc").getAsString();
+        //  mainActivity.showChoroby(uwagiChorobyPacjenta.toString());
 
-
-      //  mainActivity.showChoroby(uwagiChorobyPacjenta.toString());
-        mainActivity.showNazwaChoroby(nazwyChorobyPacjenta.toString());
-
-        mainActivity.listChorobyUwagi(uwagiChorobyPacjenta);
+        patientDiseases.showNazwaChoroby(nazwyChorobyPacjenta.toString());
+        patientDiseases.listChorobyUwagi(uwagiChorobyPacjenta);
 
     }
+
+    private void getPatientDataOnResponse(JsonArray jsonArray, Object a) {
+
+
+        PatientData patientData = (PatientData) a;
+        String temp = jsonArray.get(0).toString();
+        JsonObject jsonObject = new JsonParser().parse(temp).getAsJsonObject();
+        String imie = jsonObject.get("Imie").getAsString();
+        String nazwisko = jsonObject.get("Nazwisko").getAsString();
+        String dataurodzenia = jsonObject.get("dataUrodzenia").getAsString();
+        String Pesel = jsonObject.get("Pesel").getAsString();
+
+
+        patientData.PacjentInfo(imie, nazwisko, dataurodzenia, Pesel);
+
+    }
+
+    private void getpacjentAdresOnResponse(JsonArray jsonArray, Object a) {
+
+
+        PatientData patientData = (PatientData) a;
+        String temp = jsonArray.get(0).toString();
+        JsonObject jsonObject = new JsonParser().parse(temp).getAsJsonObject();
+        String miasto =  jsonObject.get("Miasto").getAsString();
+        String ulica= jsonObject.get("Ulica").getAsString();
+        String numerDomu = jsonObject.get("NumerDomu").getAsString();
+        String numerMieszkania = jsonObject.get("NumerMieszkania").getAsString();
+        String KodPocztowy = jsonObject.get("KodPocztowy").getAsString();
+
+
+        patientData.pacjentAdres(miasto,ulica,numerDomu,numerMieszkania,KodPocztowy);
+
+    }
+
+    private void getpacjentAdresKorespondencyjnyDataOnResponse(JsonArray jsonArray, Object a) {
+
+
+        PatientData patientData = (PatientData) a;
+        String temp = jsonArray.get(0).toString();
+        JsonObject jsonObject = new JsonParser().parse(temp).getAsJsonObject();
+        String miasto =  jsonObject.get("Miasto").getAsString();
+        String ulica= jsonObject.get("Ulica").getAsString();
+        String numerDomu = jsonObject.get("NumerDomu").getAsString();
+        String numerMieszkania = jsonObject.get("NumerMieszkania").getAsString();
+        String KodPocztowy = jsonObject.get("KodPocztowy").getAsString();
+
+        patientData.pacjentAdresKorespondencyjny(miasto,ulica,numerDomu,numerMieszkania,KodPocztowy);
+
+    }
+
+}
 
 
 //    private void getPacjentWiekOnResponse(JsonArray jsonArray, Activity a) {
@@ -541,4 +608,4 @@ class DbControl {
 //    }
 //
 
-}
+
