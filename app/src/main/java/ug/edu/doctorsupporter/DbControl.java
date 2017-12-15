@@ -307,9 +307,10 @@ class DbControl {
 //        String uwagiDolegliwosc = jsonObject.get("uwagiDolegliwosc").getAsString();
 
 
-        mainActivity.showChoroby(uwagiChorobyPacjenta.toString());
+      //  mainActivity.showChoroby(uwagiChorobyPacjenta.toString());
         mainActivity.showNazwaChoroby(nazwyChorobyPacjenta.toString());
 
+        mainActivity.listChorobyUwagi(uwagiChorobyPacjenta);
 
     }
 
