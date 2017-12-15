@@ -148,6 +148,8 @@ PatientDiseases PDS;
 
     }
 
+
+
 //    public void getPacjentPesel(String pesel) {
 //
 //        TextView wyswietl = (TextView) findViewById(R.id.peselPacjentaTV);
@@ -158,20 +160,20 @@ PatientDiseases PDS;
 //    }
 
 
-    public void getChoroby(String uwagiDolegliwosc) {
-      PDS.getChoroby(uwagiDolegliwosc);
+//    public void getChoroby(String uwagiDolegliwosc) {
+//      PDS.showChoroby(uwagiDolegliwosc);
+////
+////        TextView wyswietl = (TextView) findViewById(R.id.uwagiChorobyTV);
+////
+////
+////
+////        wyswietl.setText(uwagiDolegliwosc);
 //
-//        TextView wyswietl = (TextView) findViewById(R.id.uwagiChorobyTV);
+////        TextView wyswietl2 = (TextView) findViewById(R.id.listOfDiseases);
 //
+//      //  wyswietl.setText(nazwaDolegliwosc);
 //
-//
-//        wyswietl.setText(uwagiDolegliwosc);
-
-//        TextView wyswietl2 = (TextView) findViewById(R.id.listOfDiseases);
-
-      //  wyswietl.setText(nazwaDolegliwosc);
-
-    }
+//    }
 
 
     public void updateBelka(int lekarzId, int pacjentId ){
@@ -180,7 +182,7 @@ PatientDiseases PDS;
         dbc.task(this,"belka1","getLekarzInfo",pacjentId+"");
         dbc.task(this,"belka2","getPacjentWiek",pacjentId+"");
         //dbc.task(this,"belka3","getPacjentPesel",pacjentId+"");
-        dbc.task(this,"belka4","getChoroby",pacjentId+"");
+
 
     }
 

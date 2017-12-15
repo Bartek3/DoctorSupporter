@@ -36,11 +36,20 @@
     // Patient diseases
 
 
-    <string-array name="statusChoroby">
+    <string-array name="statusChorobySpinner">
         <item>Nieokreślono</item>
         <item>Niewyleczone</item>
-     <item>Wyleczone</item>
-    <item>W trakcie</item>
+     <item>Wyleczono</item>
+    <item>W toku</item>
+    </string-array>
+    
+    // PatientExamination
+    
+    <string-array name="badanieSpinner">
+        <item>Nieokreślono</item>
+        <item>Wykonane</item>
+        <item>Zaplanowane</item>
+        <item>Odwołane</item>
     </string-array>
 
 

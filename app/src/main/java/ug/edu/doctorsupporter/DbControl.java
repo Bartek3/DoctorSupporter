@@ -55,11 +55,11 @@ class DbControl {
         return "";
     }
 
-    public void task(final Activity a, final String whattodo,final String api, final String... par) {
+    public void task(final Object a, final String whattodo,final String api, final String... par) {
 
 
         Log.d("dbc task", api + ": " + par.toString());
-        RequestQueue queue = Volley.newRequestQueue(a);
+        RequestQueue queue = Volley.newRequestQueue((Activity)a);
         final String url = "https://nadirdoc.herokuapp.com/api/" + api;
 
 
@@ -79,19 +79,19 @@ class DbControl {
 
                                 switch (whattodo) {
                                     case "login":
-                                        loginOnResponse(jsonArray, a);
+                                        loginOnResponse(jsonArray,(Activity)a);
                                         break;
                                     case "belka":
-                                        pacjentInfoOnResponse(jsonArray, a);
+                                        pacjentInfoOnResponse(jsonArray,(Activity)a);
                                         break;
                                     case"belka1":
-                                        getLekarzInfoOnResponse(jsonArray,a);
+                                        getLekarzInfoOnResponse(jsonArray,(Activity)a);
                                         break;
                                     case"belka2":
-                                        getPacjentWiekOnResponse(jsonArray,a);
+                                        getPacjentWiekOnResponse(jsonArray,(Activity)a);
                                         break;
 //                                    case"belka3":
-//                                        getPacjentPeselOnResponse(jsonArray,a);
+//                                        getPacjentPeselOnResponse(jsonArray,(Activity)a);
 //                                        break;
                                     case"belka4":
                                         getChorobyOnResponse(jsonArray,a);
@@ -283,9 +283,9 @@ class DbControl {
 //    }
 
 
-    private void getChorobyOnResponse(JsonArray jsonArray, Activity a) {
+    private void getChorobyOnResponse(JsonArray jsonArray, Object a) {
 
-        MainActivity mainActivity = (MainActivity) a;
+        PatientDiseases mainActivity = (PatientDiseases) a;
 
         String temp = jsonArray.get(0).toString();
 
@@ -295,7 +295,7 @@ class DbControl {
         String uwagiDolegliwosc = jsonObject.get("uwagiDolegliwosc").getAsString();
 
 
-        mainActivity.getChoroby( uwagiDolegliwosc);
+        mainActivity.showChoroby( uwagiDolegliwosc);
 
 
 
