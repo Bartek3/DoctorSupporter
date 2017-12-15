@@ -13,40 +13,53 @@
         android:layout_margin="30dp"
         android:orientation="vertical">
 
-    <Button
-        android:id="@+id/loginButton"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center_horizontal"
-        android:background="@color/colorAccent"
-        android:text="Dodaj"
-        android:textSize="18dp"
-        android:layout_marginBottom="20dp"
-        android:textColor="@android:color/white" />
+
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:layout_marginBottom="6dp"
             android:textColor="@android:color/background_light"
             android:text="Status dolegliwości:"/>
 
+
+
         <Spinner
             android:id="@+id/listOfDiseases"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_margin="20dp"
+            android:layout_height="30dp"
+            android:layout_margin="10dp"
             android:entries="@array/statusChorobySpinner"
             android:textColor="@android:color/background_light"
             ></Spinner>
 
         <TextView
+            android:id="@+id/nazwaChorobyTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_marginBottom="6dp"
+            android:textColor="@android:color/background_light"
+            android:text="Nazwa choroby"/>
+
+        <TextView
             android:id="@+id/uwagiChorobyTV"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:textColor="@android:color/black"
-            android:background="@android:color/white"/>
+            android:background="@android:color/white"
+            android:textColor="@android:color/black" />
+
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/colorAccent"
+            android:text="Dodaj"
+            android:textSize="18dp"
+            android:layout_marginBottom="20dp"
+            android:textColor="@android:color/white" />
 
 </LinearLayout>
 </FrameLayout>

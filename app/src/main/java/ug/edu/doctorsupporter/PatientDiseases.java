@@ -65,7 +65,9 @@ public class PatientDiseases extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         dbc= new DbControl();
-        dbc.task(this,"belka4","getChoroby","1");
+
+        String[] params = {"1","0"};
+        dbc.task(this,"belka4","getChoroby",params);
 
         return inflater.inflate(R.layout.fragment_patient_diseases, container, false);
     }
@@ -78,6 +80,16 @@ public class PatientDiseases extends Fragment {
 
         wyswietl.setText(uwagiDolegliwosc);
 
+
+
     }
+
+    public void showNazwaChoroby(String nazwaDolegliwosci) {
+        Log.d("PD:sC",nazwaDolegliwosci);
+        TextView wyswietl = (TextView) getView().findViewById(R.id.nazwaChorobyTV);
+
+        wyswietl.setText(nazwaDolegliwosci);
+    }
+
 
 }
