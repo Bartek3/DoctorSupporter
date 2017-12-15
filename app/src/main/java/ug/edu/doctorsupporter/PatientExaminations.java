@@ -13,9 +13,11 @@ public class PatientExaminations extends Fragment {
     private String rodzajBadania;  // badanie zostało wygenerowane w formie tabelarycznej - tekstowej wtedy mamy załącznik/ bądz obrazowej np. badanie rentgenowskie
     private String nazwaBadania;
     private String statusBadania;
+
     private String dataODbadania;
     private String dataDObadania;
     private String opisBadnia;
+
     private String objawyZgloszonePrzezPacjenta;
     private String RozpoznanieKliniczne;
     private String Zalecenia;

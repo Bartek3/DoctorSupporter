@@ -33,5 +33,24 @@
     <string name="thigh">Udo</string>
     <string name="expectedMass">Masa oczekiwana</string>
 
+    // Patient diseases
+
+
+    <string-array name="statusChorobySpinner">
+        <item>Nieokreślono</item>
+        <item>Niewyleczone</item>
+     <item>Wyleczono</item>
+    <item>W toku</item>
+    </string-array>
+    
+    // PatientExamination
+    
+    <string-array name="badanieSpinner">
+        <item>Nieokreślono</item>
+        <item>Wykonane</item>
+        <item>Zaplanowane</item>
+        <item>Odwołane</item>
+    </string-array>
+
 
 </resources>
