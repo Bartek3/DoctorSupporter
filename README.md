@@ -8,6 +8,20 @@ Docelowym urządzeniem na którym będzie działać aplikacja jest tablet.
 
 To find out how to use this library follow [Documentation](https://www.youtube.com/watch?v=dQw4w9WgXcQ).
 
+### Pogląd aplikacji
+
+
+![image](https://user-images.githubusercontent.com/11943355/34871903-7ba9d288-f78f-11e7-8d4b-b432e81877f7.png)
+
+![image](https://user-images.githubusercontent.com/11943355/34871975-a0b47060-f78f-11e7-8773-98b593873570.png)
+
+![image](https://user-images.githubusercontent.com/11943355/34871981-a86ecb70-f78f-11e7-9ac7-120ae4f6fb3d.png)
+
+![image](https://user-images.githubusercontent.com/11943355/34871995-b1028e84-f78f-11e7-920d-d0b9aeaf7fcd.png)
+
+![image](https://user-images.githubusercontent.com/11943355/34872022-c4369982-f78f-11e7-9366-df59980267b9.png)
+
+
 ## Features (CRUD)
 
 * create
