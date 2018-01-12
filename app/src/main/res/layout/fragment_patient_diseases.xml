@@ -1,65 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@color/colorPrimaryDark"
+android:orientation="vertical"
+tools:context=".PatientExaminations">
+
+<ScrollView
     android:layout_width="match_parent"
-    android:background="@color/colorPrimaryDark"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".PatientDiseases">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="30dp"
         android:orientation="vertical">
 
-
-
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:layout_marginBottom="6dp"
-            android:textColor="@android:color/background_light"
-            android:text="Status dolegliwości:"/>
+            android:layout_margin="15dp"
+            android:orientation="vertical">
 
+            <Spinner
+                android:id="@+id/nazwaChorobyTV"
+                android:layout_width="match_parent"
+                android:entries="@array/badanieSpinner"
+                android:textColor="@android:color/background_light"
+                android:layout_marginBottom="10dp"
+                android:textSize="20sp"
+                android:layout_height="wrap_content"></Spinner>
 
+        </LinearLayout>
 
-        <Spinner
-            android:id="@+id/listOfDiseases"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_margin="10dp"
-            android:entries="@array/statusChorobySpinner"
-            android:textColor="@android:color/background_light"
-            ></Spinner>
-
-        <TextView
-            android:id="@+id/nazwaChorobyTV"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:layout_marginBottom="6dp"
-            android:textColor="@android:color/background_light"
-            android:text="Nazwa choroby"/>
+            android:layout_margin="15dp"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/uwagiChorobyTV"
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:text="Opis dolegliwosci:"
+                android:textColor="@android:color/background_light"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/uwagiChorobyTV"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:background="@android:color/white"
+                android:textColor="@android:color/black"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@android:color/white"
-            android:textColor="@android:color/black" />
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/loginButton"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center_horizontal"
-            android:background="@color/colorAccent"
-            android:text="Dodaj"
-            android:textSize="18dp"
-            android:layout_marginBottom="20dp"
-            android:textColor="@android:color/white" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:text="Objawy zgłoszone przez pacjenta"
+                android:textColor="@android:color/background_light"
+                android:textSize="14sp" />
 
-</LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:background="@android:color/white"
+                android:textColor="@android:color/black" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:text="Przeprowadzone leczenie"
+                android:textColor="@android:color/background_light"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:background="@android:color/white"
+                android:textColor="@android:color/black" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
 </FrameLayout>
