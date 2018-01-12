@@ -42,7 +42,7 @@ router.post('/getChoroby',function(req,res,next){
         getChoroby:function(idPacjent,callback){
             return db.query("Select * from Choroby where Pacjent_idPacjent = ?",[idPacjent],callback);
         },
-        ```
+```
 
 ## Features (CRUD)
 
