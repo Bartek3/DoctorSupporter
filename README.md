@@ -22,7 +22,7 @@ To find out how to use this library follow [Documentation](https://www.youtube.c
 ![image](https://user-images.githubusercontent.com/11943355/34872022-c4369982-f78f-11e7-9366-df59980267b9.png)
 
 ### api
-
+```javascript
 router.post('/getChoroby',function(req,res,next){
   var idPacjent = req.body.idPacjent;
   Doctors.getChoroby(idPacjent,function(err,rows){
@@ -34,12 +34,15 @@ router.post('/getChoroby',function(req,res,next){
         }
   })
 });
+```
 
 ### Doctors js
+```javascript
 
         getChoroby:function(idPacjent,callback){
             return db.query("Select * from Choroby where Pacjent_idPacjent = ?",[idPacjent],callback);
         },
+        ```
 
 ## Features (CRUD)
 
