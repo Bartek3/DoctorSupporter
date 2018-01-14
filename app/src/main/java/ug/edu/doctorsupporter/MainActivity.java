@@ -62,6 +62,11 @@ public class MainActivity extends AppCompatActivity {
             logout.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(logout);
         }
+        if (id == R.id.action_notepad) {
+            Intent notepad = new Intent(this, NotepadActivity.class);
+            startActivity(notepad);
+        }
+
 
         return super.onOptionsItemSelected(item);
     }
