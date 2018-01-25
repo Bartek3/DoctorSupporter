@@ -41,7 +41,7 @@
             android:gravity="top"
             android:overScrollMode="always"
             android:scrollbarStyle="insideInset"
-            android:minLines="30"
+            android:minLines="27"
             android:scrollbars="vertical"
             android:layout_margin="30dp"/>
 
