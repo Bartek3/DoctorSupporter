@@ -37,18 +37,18 @@ public class LoginActivity extends AppCompatActivity {
        String[] params = {login,password};
         dbc.task(this,"login","login",params);
        Log.d("Alt","AAA");
-      //  openMainActivity(1);
+       //openMainActivity(1);  // wejscie tutaj
          //  userId = dbc.login(login, password);
-       // openMainActivity(userId); // wejscie
-//        if(userId>0){
-//           openMainActivity(userId);
-//        }
-//        else {
-//
-//       TextView wrongLogin = (TextView) findViewById(R.id.wrongLoginText);
-//           wrongLogin.setVisibility(View.VISIBLE);  // jakie to jest zjebane
-//         wrongLogin.setText("Nieprawidłowe logowanie! "+err+": "+userId);
-//        }
+        //openMainActivity(userId); // wejscie
+        if(userId>0){
+           openMainActivity(userId);
+        }
+        else {
+
+       TextView wrongLogin = (TextView) findViewById(R.id.wrongLoginText);
+           wrongLogin.setVisibility(View.VISIBLE);  // jakie to jest zjebane
+         wrongLogin.setText("Nieprawidłowe logowanie!");  // "+err+": "+userId");
+        }
 
     }
     public void printWarn(String text){

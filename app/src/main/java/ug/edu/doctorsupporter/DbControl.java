@@ -112,9 +112,9 @@ class DbControl {
 //                                    case"belka3":
 //                                        getPacjentPeselOnResponse(jsonArray,(Activity)a);
 //                                        break;
-                                    case "belka4":
-                                        getChorobyOnResponse(jsonArray, a, Integer.valueOf(par[par.length - 1]));
-                                        break;
+//                                    case "belka4":
+//                                        getChorobyOnResponse(jsonArray, a, Integer.valueOf(par[par.length - 1]));
+//                                        break;
                                     case "belka5":
                                         getPatientDataOnResponse(jsonArray, a);
                                         break;
@@ -157,9 +157,9 @@ class DbControl {
 //                    case "getPacjentPesel":
 //                        params = getPacjentPeselParams(par);
 //                        break;
-                    case "getChoroby":
-                        params = getChorobyParams(par);
-                        break;
+//                    case "getChoroby":
+//                        params = getChorobyParams(par);
+//                        break;
                     case "pacjentAdres":
                         params = getPacjentWiekParams(par);
                         break;
@@ -217,12 +217,12 @@ class DbControl {
 //        return params;
 //    }
 
-    private Map<String, String> getChorobyParams(String[] par) {
-        String idPacjent = par[0];
-        Map<String, String> params = new HashMap<String, String>();
-        params.put("idPacjent", idPacjent);
-        return params;
-    }
+//    private Map<String, String> getChorobyParams(String[] par) {
+//        String idPacjent = par[0];
+//        Map<String, String> params = new HashMap<String, String>();
+//        params.put("idPacjent", idPacjent);
+//        return params;
+//    }
 
 
     private void loginOnResponse(JsonArray jsonArray, Activity a) {
@@ -300,22 +300,22 @@ class DbControl {
     }
 
 
-    private void getChorobyOnResponse(JsonArray jsonArray, Object a, int index) {
-
-        ArrayList<String> nazwyChorobyPacjenta = new ArrayList<>();
-        ArrayList<String> uwagiChorobyPacjenta = new ArrayList<>();
-
-
-        PatientDiseases patientDiseases = (PatientDiseases) a;
-        for (JsonElement b : jsonArray) {
-            if (b.isJsonObject()) {
-
-                String nazwaDolegliwosci = b.getAsJsonObject().get("nazwaDolegliwosci").getAsString();
-                String uwagiDolegliwosc = b.getAsJsonObject().get("uwagiDolegliwosc").getAsString();
-                nazwyChorobyPacjenta.add(nazwaDolegliwosci);
-                uwagiChorobyPacjenta.add(uwagiDolegliwosc);
-            }
-        }
+//    private void getChorobyOnResponse(JsonArray jsonArray, Object a, int index) {
+//
+//        ArrayList<String> nazwyChorobyPacjenta = new ArrayList<>();
+//        ArrayList<String> uwagiChorobyPacjenta = new ArrayList<>();
+//
+//
+//        PatientDiseases patientDiseases = (PatientDiseases) a;
+//        for (JsonElement b : jsonArray) {
+//            if (b.isJsonObject()) {
+//
+//                String nazwaDolegliwosci = b.getAsJsonObject().get("nazwaDolegliwosci").getAsString();
+//                String uwagiDolegliwosc = b.getAsJsonObject().get("uwagiDolegliwosc").getAsString();
+//                nazwyChorobyPacjenta.add(nazwaDolegliwosci);
+//                uwagiChorobyPacjenta.add(uwagiDolegliwosc);
+//            }
+//        }
 
 //
 //        String temp = jsonArray.get(index).toString();
@@ -325,10 +325,9 @@ class DbControl {
 //        String uwagiDolegliwosc = jsonObject.get("uwagiDolegliwosc").getAsString();
         //  mainActivity.showChoroby(uwagiChorobyPacjenta.toString());
 
-        patientDiseases.showNazwaChoroby(nazwyChorobyPacjenta.toString());
-        patientDiseases.listChorobyUwagi(uwagiChorobyPacjenta);
-
-    }
+//        patientDiseases.showNazwaChoroby(nazwyChorobyPacjenta.toString());
+//        patientDiseases.listChorobyUwagi(uwagiChorobyPacjenta);
+//   }
 
     private void getPatientDataOnResponse(JsonArray jsonArray, Object a) {
 
