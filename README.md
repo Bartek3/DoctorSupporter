@@ -94,16 +94,42 @@ Zagrożenie funkcjonowania może stanowić także sieci komputerowach w szpitala
 W programie stosuje się dwa pojęcia wywiad żywieniowy oraz bilans zdrowotny. Wywiad żywieniowy to zalecenia dotyczące spożywanych produktów, uwzględniając nadwrażliwości pokarmowe, alergie oraz mogące wystąpić niepożądane działania w połączeniu z grupami produktów. Bilans zdrowotny to zbiór badań odnośnie wzrostu, wagi, masy mięśni, ilości tkanki tłuszczowej w organizmie.
 W tabeli 3.1. zaprezentowano funkcjonalności aplikacji mobilnej dla lekarzy w podziale na: udogodnienia personalne użytkownika i dostęp do danych związanych z pacjentem.
 
-### Funkcjonalności aplikacji mobilnej dla lekarzy  #1
+### Funkcjonalności aplikacji mobilnej dla lekarzy 
 
-![image](https://user-images.githubusercontent.com/11943355/35408265-c9f3778a-020e-11e8-951b-e7b37d9cbe4c.png)
+* **Powiadomienia** 	o terminach wizyt, zabiegów, nagłych zdarzeniach, wezwaniach
+* **Czas pracy**	informuje o dotychczasowym czasie pracy pracownika 
+* **Czas przerwy**	w tym powiadomienie o powinności odbycia przerwy
+* **Kalendarz	widok na kalendarz** Propozycja Bartka kalendarz z Androida
+* **Grafik** 	obecny w kalendarzu, grafik pracy
+* **Notatnik**	zawiera podstawowe funkcje notatnika
+* **Wysłanie żądania do drukowania dokumentów** 	żądanie wysyłane do drukarek będących w sieci komputerowej szpitala
+* **Wiadomości** 	komunikacja między użytkownikami aplikacji
+* **Zmiana preferencji użytkownika**	zmiana kolorystyki wyglądu, dopasowania szybkich przycisków na belce górnej aplikacji
+* **Miniatura zdjęcia**	pozwala upewnić się kto jest zalogowany
+* **Przycisk odbierania powiadomień**	 przycisk interaktywny który zmienia swój wygląd w momencie kiedy użytkownik ma nowe powiadomienia
 
-### Funkcjonalności aplikacji mobilnej dla lekarzy  #2   Dostęp do danych związanych z pacjentem
-
-![image](https://user-images.githubusercontent.com/11943355/35408297-eb607530-020e-11e8-8655-8da1d887df09.png)
 
 
-![image](https://user-images.githubusercontent.com/11943355/35408322-f93a5a68-020e-11e8-8c89-310d44045d87.png)
+###  Funkcjonalności, dostęp do danych związanych z pacjentem
+
+* **Imię i nazwisko**
+* **Adres zamieszkania**	
+* **Adres korespondencyjny**	
+* **PESEL**	
+* **Wiek**	
+* **Oddział NFZ**	 
+* **Dane osoby do kontaktu:**	imię, nazwisko, numer telefonu, email
+* **Bilans zdrowotny**	zbiór badań pacjenta, zawierający takie informacje jak wzrost, waga, masa mięśni, ilość tkanki tłuszczowej w organizmie
+* **Badania	wykonane,** zaplanowane lub anulowane badania, z możliwością zlecenia do ich zaplanowania
+* **Historia pacjenta** 	historia wizyt, leczenie, przebyte choroby
+* **Dolegliwości i choroby,**	w tym zalecane leczenie i przypisywanie leków – propozycja Dominika, rozróżnienie na chorby na które pacjent choruje cały czas (np. cukrzyca) i tych z którymi przyszedł do szpitala
+* **Wywiad żywieniowy** 	zalecane produkty z uwzględnieniem nadwrażliwości na nie, uwagi
+* **Recepty**	wypisane recepty, wraz z opcją dodawania nowych
+* **Galeria**	dostęp do zbioru zdjęć związanych z obrazowaniem medycznym (zdjęcia rentgenowskie, tomografia komputerowa itd.)
+* **Załączniki**	dodane dokumenty np. ze specjalistycznej aparatury medycznej
+* **Leki**	dostęp do bazy leków oraz ich cen
+* **Ocena zdrowia pacjenta**	ocena ogólna zdrowia, wraz z informacją o nadwrażliwościach i alergiach
+
 
 
 ##  Korzyści z użytkowania aplikacji mobilnej wspomagającej pracę lekarzy
