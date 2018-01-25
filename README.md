@@ -1,6 +1,21 @@
 # DoctorSupporter+
+## Aplikacja mobilna dla lekarzy
 
+**Table of Contents**
 
+- [Intro](#intro)
+- [Baza danych](#baza-danych)
+- [Api](#api)
+- [Guest Log In](#guest-log-in)
+- [Pogląd aplikacji](#pogląd-aplikacji)
+- [Przykład kodu](#przykład-kodu)
+- [Założenia i funkcjonalności](#założenia-i-funkcjonalności)
+- [Poszczególne funkcjonalności](#poszczególne-funkcjonalności)
+- [Funkcjonalności pacjent](#funkcjonalności-pacjent)
+- [Korzyści](#korzyści)
+- [Podsumowanie](#podsumowanie)
+
+## Intro
 Aplikacja mobilna na platformę Android, **mająca wspierać codzienną pracę lekarzy poprzez wyeliminowanie bariery fizycznej dostępu do danych pacjentów** tj. informacji o przebytych chorobach, nadwrażliwościach, alergiach, podanych lekach czy przeprowadzonych badaniach poprzez umożliwienie dostępu do tychże za pośrednictwem tabletu w który ma zostać wyposażony lekarz podczas swojej pracy. Funkcjonalnościami dotyczącymi bezpośrednio lekarza są: dostęp do kalendarza, notatnika, powiadomień czy czasu pracy. 
 Docelowym urządzeniem na którym będzie działać aplikacja jest tablet.
 ## Baza danych
@@ -43,9 +58,14 @@ Informacja o lekarzu prowadzącym na prezentowanym ekranie, jest odgórnie dodaw
 
 ![image](https://user-images.githubusercontent.com/11943355/34872022-c4369982-f78f-11e7-9366-df59980267b9.png)
 
+
+
 Powyższy rysunek  przedstawia zakładkę galeria w której przykładowo zostały dodane zdjęcia rentgenowskie. Jest to zakładka która skupia wszystkie dane zapisane obrazowo w jednym miejscu, są one dodawane przez pracowników administracyjnych. W perspektywie rozwoju na pewno rozważa się możliwość integracji narzędzi medycznych z programem, tak by bezpośrednio trafiały one na serwer aplikacji, skąd urządzenie z którego korzysta pracownik będzie mogło je pobrać i wyświetlić. Obrazy medyczne mogą nie być tak użytecznym narzędziem gdy są wyświetlane na ekranach tabletów, z powodu możliwego przekłamywania kolorów, nie uwydatniania odpowiednich szczegółów czy nieprawidłowej ostrości. Stąd ma się świadomość, że ten obszar powinien się rozwijać pod kontem prawidłowości wyświetlanych obrazów medycznych ze strony aplikacji. Podczas zamawiania urządzeń, należałoby rozważyć takie aspekty jak jasność ekranu, rozdzielczość ekranu czy odzwierciedlenie kolorów. Zakładka ta może okazać się ogromnie przydatna, w czasie kiedy pracownik może praktycznie od razu otrzymać obraz medyczny którego pojawienie się na serwerze zostanie zasygnalizowane przez powiadomienia, czy w każdej chwili zerknąć na obraz, przeanalizować go jeszcze raz, co może być przydatne w stawianiu diagnozy, czy przebiegu leczenia.
 
-### Kod napisany w języku JavaScript służący do wysyłania zapytań do bazy danych
+
+![image](https://user-images.githubusercontent.com/11943355/35411165-08dd1c68-0218-11e8-8a87-dbdd21639947.png)
+
+### Przykład kodu
 ```javascript
 router.post('/getChoroby',function(req,res,next){
   var idPacjent = req.body.idPacjent;
@@ -67,14 +87,10 @@ router.post('/getChoroby',function(req,res,next){
         },
 ```
 
-## Features (CRUD)
 
-* create
-* read
-* update
-* delete
-* kalendarz, notatnik, czas pracy
-## Założenia i przykładowe funkcjonalności Aplikacji mobilnej DoctorSupporter
+## Założenia i funkcjonalności
+
+#Założenia i przykładowe funkcjonalności Aplikacji mobilnej DoctorSupporter
 
 **Podczas projektowania aplikacji starano się przeanalizować cały kontekst pracy w środowisku pod kątem jego silnych i słabych stron, a także szans i zagrożeń jakie stoją w obliczu proponowanego rozwiązania. W kwestii stron słabych aplikacji należy przedstawić jej nowatorskie podejście do zmiany papierowej, tradycyjnej dokumentacji na te nowocześniejsze, elektroniczne.**
 
@@ -94,7 +110,7 @@ Zagrożenie funkcjonowania może stanowić także sieci komputerowach w szpitala
 W programie stosuje się dwa pojęcia wywiad żywieniowy oraz bilans zdrowotny. Wywiad żywieniowy to zalecenia dotyczące spożywanych produktów, uwzględniając nadwrażliwości pokarmowe, alergie oraz mogące wystąpić niepożądane działania w połączeniu z grupami produktów. Bilans zdrowotny to zbiór badań odnośnie wzrostu, wagi, masy mięśni, ilości tkanki tłuszczowej w organizmie.
 W tabeli 3.1. zaprezentowano funkcjonalności aplikacji mobilnej dla lekarzy w podziale na: udogodnienia personalne użytkownika i dostęp do danych związanych z pacjentem.
 
-### Funkcjonalności aplikacji mobilnej dla lekarzy 
+### Poszczególne funkcjonalności
 
 * **Powiadomienia** 	o terminach wizyt, zabiegów, nagłych zdarzeniach, wezwaniach
 * **Czas pracy**	informuje o dotychczasowym czasie pracy pracownika 
@@ -110,7 +126,8 @@ W tabeli 3.1. zaprezentowano funkcjonalności aplikacji mobilnej dla lekarzy w p
 
 
 
-###  Funkcjonalności, dostęp do danych związanych z pacjentem
+## Funkcjonalności pacjent
+
 
 * **Imię i nazwisko**
 * **Adres zamieszkania**	
@@ -132,8 +149,8 @@ W tabeli 3.1. zaprezentowano funkcjonalności aplikacji mobilnej dla lekarzy w p
 
 
 
-##  Korzyści z użytkowania aplikacji mobilnej wspomagającej pracę lekarzy
-
+##  Korzyści
+###  z użytkowania aplikacji mobilnej wspomagającej pracę lekarzy
 Zaprojektowana aplikacja ma za zadanie wspomaganie funkcjonowania pracowników placówek służby zdrowia, w ich środowisku pracy. **Aplikacja kierowana jest do szerokiego spektrum pracowników medycznych tj. lekarzy, pielęgniarek fizjoterapeutów czy opiekunów medycznych. Poprzez umożliwienie dostępu do danych związanych ze stanem zdrowia swoich pacjentów w czasie rzeczywistym, a także śledzeniem przebiegu leczenia, zostanie wyeliminowana bariera związana z koniecznością fizycznego udania się do pacjenta, czy jednego konkretnego miejsca w którym lekarzowi dane odnośnie zdrowia pacjenta zostaną przedłożone.** Niezaprzeczalnie realny kontakt lekarza z pacjentem zdecydowanie trafniej pozwoli zweryfikować jego stan zdrowia i podjąć ewentualną diagnozę, nie zawsze jednak lekarz ma sposobność bycia bezpośrednio przy łóżku pacjenta, czy to ze względu na inne obowiązki, czy fizyczną obecność w miejscu, z dala od pacjenta. 
 
 Wygoda jaką oferuje aplikacja pozwala zasięgnąć danych w każdym miejscu i czasie, jeśli tylko urządzenie na którym pracuje aplikacja jest w zasięgu sieci. Opcjonalnie pracownicy służby zdrowia mogą sprawdzić aktualne dane o pacjentach będąc poza placówką służby zdrowia np. w domu, bowiem często zmiana stanu zdrowia pacjenta wymaga natychmiastowych działań i pracownik który zajmuje się konkretnym przypadkiem medycznym od początku, będzie w stanie prawdopodobnie najpełniej na podstawie posiadanych danych dokonać prawidłowej diagnozy. Aplikacja również oferuje moduł powiadomień związanych z nagłymi zdarzeniami na oddziale, wezwaniami przez przełożonego itd. zastępując tym samym wciąż funkcjonujące w placówkach pagery.  
@@ -151,7 +168,7 @@ Możliwość wypisania recepty wraz ze szczegółowymi informacjami, oraz dodani
 Mogą to być na przykład dane liczbowe z specjalistycznej aparatury medycznej szpitala, dostarczone przez administrację w celu pełniejszej diagnostyki. Moduł bazy leków prezentuje listę leków wraz jej numerem identyfikacyjnym, substancją czynną, nazwą, postacią i dawką leku, zawartością opakowania i pozostałymi informacjami niezbędnymi do wykorzystania w praktyce. Zakładka różne informacje informuje użytkownika o ogólnych uwagach jakie lekarz czy inny uprawniony do tego pracownik placówki może dodać, obecny jest również suwak informujący o ogólnym zdrowiu pacjenta w skali procentowej, oraz informacja o tym do którego pracownika przypisany jest pacjent.
 Zgodnie z zasadą niezaprzeczalności w zakładce raport zmian odnotowywane są wszystkie modyfikacje zachodzące podczas pracy przy dokumentacji medycznej, wraz z jej datą, czasem, a także autorem zmian. Wyświetlana jest komórka w której dokonano zmian, treść którą wprowadzono, a także informacja co znajdowało się w danej komórce, przed dokonaniem tych zmian.
 
-## Podsumowując,
+## Podsumowanie
 dostęp do danych pacjenta w tak łatwy i prosty sposób pozwala oszczędzić czas i zwiększyć efektywność pracy lekarzy . Jednocześnie podnosząc komfort pracy ich samych poprzez personalne udogodnienia, co powinno mieć też realny wpływ na jakość wykonywanej przez nich pracy, i na ograniczenie wypadków czy błędów medycznych wynikających z praktyki. Żyjąc w XXI wieku nie sposób nie dostrzegać galopujących zmian jakie dokonują się w właściwie każdej dziedzinie życia. Informatyzacja poszczególnych sektorów gospodarki zachodzi dziś w znacznym tempie, a jej progres w przypadku służby zdrowia musi wciąż stymulowany, ze względu na przeciwności jakie stają na jej przeszkodzie. 
  
 
