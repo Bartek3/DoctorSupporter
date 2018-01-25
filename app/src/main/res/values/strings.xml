@@ -37,7 +37,8 @@
 
 
     <string-array name="statusChorobySpinner">
-        <item>Nieokreślono</item>
+
+        <item>Nazwwa Dolegliwosci</item>
         <item>Niewyleczone</item>
      <item>Wyleczono</item>
     <item>W toku</item>
