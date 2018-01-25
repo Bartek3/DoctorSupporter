@@ -18,6 +18,7 @@
 ## Intro
 Aplikacja mobilna na platformę Android, **mająca wspierać codzienną pracę lekarzy poprzez wyeliminowanie bariery fizycznej dostępu do danych pacjentów** tj. informacji o przebytych chorobach, nadwrażliwościach, alergiach, podanych lekach czy przeprowadzonych badaniach poprzez umożliwienie dostępu do tychże za pośrednictwem tabletu w który ma zostać wyposażony lekarz podczas swojej pracy. Funkcjonalnościami dotyczącymi bezpośrednio lekarza są: dostęp do kalendarza, notatnika, powiadomień czy czasu pracy. 
 Docelowym urządzeniem na którym będzie działać aplikacja jest tablet.
+
 ## Baza danych
 
 Baza danych napisana w języku MySQL znajduje się na **oddzielnym serwerze.**
@@ -26,20 +27,17 @@ Baza danych napisana w języku MySQL znajduje się na **oddzielnym serwerze.**
 
 Api napisane w JavaScripcie znajduje się na serwerach **Heroku** jego kod nie został udostepniony w ramach tego repozytorium.
 
-
-
 ## Guest Log In
+
 ```
 login: nowakpiotr
 hasło: 1234
 ```
 
-
 ### Pogląd aplikacji
 Pierwszym widokiem ukazującym się po uruchomieniu aplikacji będzie okno logowania, które wymagało będzie numeru identyfikacyjnego lekarza, oraz hasła. Bez prawidłowego wprowadzenia tych danych, korzystanie z dalszych funkcjonalności aplikacji jest niemożliwe. Kolejno ukazuje się panel lekarza z dostępem do wszystkich funkcjonalności, zawierających ifnformacje o pracowniku, oraz w liście panelu bocznego dostęp do przypisanych danemu pracownikowi pacjentów, wraz z niezbędnymi do prowadzenia praktyki informacjami, posegregowanymi w przesuwalnych zakładkach. Po wylogowaniu się z aplikacji, pojawia się ekran widoczny na rysunku. 
 
 ![image](https://user-images.githubusercontent.com/11943355/34871903-7ba9d288-f78f-11e7-8d4b-b432e81877f7.png)
-
 
 Ekran  przedstawia stan po poprawnym zalogowaniu, aplikacja od razu wyświetla imię użytkownika, w celu potwierdzenia prawidłowego zalogowania użytkownika. Ekran jest prezentowany przez 3 sekundy, następnie pojawia się widok ze wszystkimi funkcjonalnościami 
 
@@ -65,7 +63,7 @@ Powyższy rysunek  przedstawia zakładkę galeria w której przykładowo został
 
 ![image](https://user-images.githubusercontent.com/11943355/35411165-08dd1c68-0218-11e8-8a87-dbdd21639947.png)
 
-### Przykład kodu
+### Api
 ```javascript
 router.post('/getChoroby',function(req,res,next){
   var idPacjent = req.body.idPacjent;
@@ -107,8 +105,6 @@ Istotne jest także by aplikacja była na bieżąco akutalizowana pod kątem bez
 
 W perspektywie dalszego rozwoju proponowanego programu w związku z jego bezpieczeństwem powinno się rozważyć zastosowanie programu DocSupporter+ jako hermetycznej platformy, na tablecie. Pozwoliłoby to ograniczyć ilość niezbędnych prac związanych z konserwacją w kwestii bezpieczeństwa, chroniąc urządzenie przed licznymi zagrożeniami tworzonymi bezpośrednio na platformę Android. 
 Zagrożenie funkcjonowania może stanowić także sieci komputerowach w szpitalach, problem ten jednak wydaje się marginalny, ponieważ w dobie informatyzacji coraz więcej publicznych ośrodków w tym również szpitali ma dostęp do szerokopasmowego łącza. 
-W programie stosuje się dwa pojęcia wywiad żywieniowy oraz bilans zdrowotny. Wywiad żywieniowy to zalecenia dotyczące spożywanych produktów, uwzględniając nadwrażliwości pokarmowe, alergie oraz mogące wystąpić niepożądane działania w połączeniu z grupami produktów. Bilans zdrowotny to zbiór badań odnośnie wzrostu, wagi, masy mięśni, ilości tkanki tłuszczowej w organizmie.
-W tabeli 3.1. zaprezentowano funkcjonalności aplikacji mobilnej dla lekarzy w podziale na: udogodnienia personalne użytkownika i dostęp do danych związanych z pacjentem.
 
 ### Poszczególne funkcjonalności
 
@@ -124,10 +120,7 @@ W tabeli 3.1. zaprezentowano funkcjonalności aplikacji mobilnej dla lekarzy w p
 * **Miniatura zdjęcia**	pozwala upewnić się kto jest zalogowany
 * **Przycisk odbierania powiadomień**	 przycisk interaktywny który zmienia swój wygląd w momencie kiedy użytkownik ma nowe powiadomienia
 
-
-
 ## Funkcjonalności pacjent
-
 
 * **Imię i nazwisko**
 * **Adres zamieszkania**	
@@ -147,8 +140,6 @@ W tabeli 3.1. zaprezentowano funkcjonalności aplikacji mobilnej dla lekarzy w p
 * **Leki**	dostęp do bazy leków oraz ich cen
 * **Ocena zdrowia pacjenta**	ocena ogólna zdrowia, wraz z informacją o nadwrażliwościach i alergiach
 
-
-
 ##  Korzyści
 ###  z użytkowania aplikacji mobilnej wspomagającej pracę lekarzy
 Zaprojektowana aplikacja ma za zadanie wspomaganie funkcjonowania pracowników placówek służby zdrowia, w ich środowisku pracy. **Aplikacja kierowana jest do szerokiego spektrum pracowników medycznych tj. lekarzy, pielęgniarek fizjoterapeutów czy opiekunów medycznych. Poprzez umożliwienie dostępu do danych związanych ze stanem zdrowia swoich pacjentów w czasie rzeczywistym, a także śledzeniem przebiegu leczenia, zostanie wyeliminowana bariera związana z koniecznością fizycznego udania się do pacjenta, czy jednego konkretnego miejsca w którym lekarzowi dane odnośnie zdrowia pacjenta zostaną przedłożone.** Niezaprzeczalnie realny kontakt lekarza z pacjentem zdecydowanie trafniej pozwoli zweryfikować jego stan zdrowia i podjąć ewentualną diagnozę, nie zawsze jednak lekarz ma sposobność bycia bezpośrednio przy łóżku pacjenta, czy to ze względu na inne obowiązki, czy fizyczną obecność w miejscu, z dala od pacjenta. 
@@ -163,13 +154,10 @@ Kolejnymi korzyściami, oprócz powyższych jest prowadzenie czy wspomaganie lec
 Umożliwiają to moduły odpowiedzialne za prowadzenie bilansu zdrowotnego, a więc szczegółowego wywiadu związanego z fizycznymi atrybutami chorego takimi jak waga, masa mięśni, ilość tkanki tłuszczowej itd. 
 Do modułu badań, który dostarcza pełne i aktualne informacje o przeprowadzonych badaniach, także z możliwością zaplanowania nowego badania pacjenta i anulowania tego zdarzenia. Moduł związany z historią pacjenta pozwoli prześledzić jego przeszłość w placówce, w której przebywa, a w perspektywie rozwoju aplikacji warto rozważyć opcję pobierania danych historycznych o pacjencie z prowadzonej bazy ogólnopolskiej szpitali. Dolegliwości i choroby to część programu odpowiedzialnego za proces leczenia pacjenta, zawarte są tam, więc zalecenia odnośnie prowadzonej praktyki, a także przypisane leki wraz z dawkowaniem. Wywiad żywieniowy pozwoli dobrać produkty dla pacjenta w taki sposób, aby zminimalizować ryzyko wystąpienia powikłań pooperacyjnych, niepożądanych interakcji pokarmu z lekami czy reakcji alergicznych lub uczuleń.
 
-Możliwość wypisania recepty wraz ze szczegółowymi informacjami, oraz dodaniem do nowych i zleceniem drukowania ich. Galerii, czyli możliwości podglądu do obrazów wykonanych aparaturą medyczną, wraz z opcją ich powiększenia i wszelkimi dodatkowymi opisami. Moduł załączniki będzie zawierał wszelkie dokumenty związane z pacjentem nie uwzględnione w przedstawionych modułach.
+Możliwość wypisania recepty wraz ze szczegółowymi informacjami, oraz dodaniem do nowych i zleceniem drukowania ich. **Galerii, czyli możliwości podglądu do obrazów wykonanych aparaturą medyczną, wraz z opcją ich powiększenia i wszelkimi dodatkowymi opisami.** Moduł załączniki będzie zawierał wszelkie dokumenty związane z pacjentem nie uwzględnione w przedstawionych modułach.
 
 Mogą to być na przykład dane liczbowe z specjalistycznej aparatury medycznej szpitala, dostarczone przez administrację w celu pełniejszej diagnostyki. Moduł bazy leków prezentuje listę leków wraz jej numerem identyfikacyjnym, substancją czynną, nazwą, postacią i dawką leku, zawartością opakowania i pozostałymi informacjami niezbędnymi do wykorzystania w praktyce. Zakładka różne informacje informuje użytkownika o ogólnych uwagach jakie lekarz czy inny uprawniony do tego pracownik placówki może dodać, obecny jest również suwak informujący o ogólnym zdrowiu pacjenta w skali procentowej, oraz informacja o tym do którego pracownika przypisany jest pacjent.
 Zgodnie z zasadą niezaprzeczalności w zakładce raport zmian odnotowywane są wszystkie modyfikacje zachodzące podczas pracy przy dokumentacji medycznej, wraz z jej datą, czasem, a także autorem zmian. Wyświetlana jest komórka w której dokonano zmian, treść którą wprowadzono, a także informacja co znajdowało się w danej komórce, przed dokonaniem tych zmian.
 
 ## Podsumowanie
 dostęp do danych pacjenta w tak łatwy i prosty sposób pozwala oszczędzić czas i zwiększyć efektywność pracy lekarzy . Jednocześnie podnosząc komfort pracy ich samych poprzez personalne udogodnienia, co powinno mieć też realny wpływ na jakość wykonywanej przez nich pracy, i na ograniczenie wypadków czy błędów medycznych wynikających z praktyki. Żyjąc w XXI wieku nie sposób nie dostrzegać galopujących zmian jakie dokonują się w właściwie każdej dziedzinie życia. Informatyzacja poszczególnych sektorów gospodarki zachodzi dziś w znacznym tempie, a jej progres w przypadku służby zdrowia musi wciąż stymulowany, ze względu na przeciwności jakie stają na jej przeszkodzie. 
- 
-
-
