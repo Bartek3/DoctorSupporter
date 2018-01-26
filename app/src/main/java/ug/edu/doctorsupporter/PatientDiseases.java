@@ -61,16 +61,16 @@ public class PatientDiseases extends Fragment {
     }
 
 
-//    @Override
-//    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-//                             Bundle savedInstanceState) {
-//        dbc = new DbControl();
-//
-//        String[] params = {"1", "0"};
-//        dbc.task(this, "belka4", "getChoroby", params);
-//
-//        return inflater.inflate(R.layout.fragment_patient_diseases, container, false);
-//    }
+   @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+       
+       /*dbc = new DbControl();
+       String[] params = {"1", "0"};
+       dbc.task(this, "belka4", "getChoroby", params);*/
+
+        return inflater.inflate(R.layout.fragment_patient_diseases, container, false);
+    }
 
 //    public void listChorobyUwagi(ArrayList<String> uwagi) {
 //        TextView names = (TextView) getView().findViewById(R.id.uwagiChorobyTV);
