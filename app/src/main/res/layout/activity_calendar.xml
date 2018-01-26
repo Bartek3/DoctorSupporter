@@ -1,12 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/notepad_content"
+    android:id="@+id/calendar_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    android:background="@color/colorPrimaryDark"
     tools:context=".CalendarActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginBottom="30dp"
+        android:orientation="vertical"
+        android:background="@color/colorPrimary">
+
+        <TextView
+            android:id="@+id/calendarName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="24dp"
+            android:text="Kalendarz"
+            android:textColor="@android:color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <CalendarView
+        android:layout_marginBottom="60dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/CalendarView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:firstDayOfWeek="2"
+        android:maxDate="01/01/2019"
+        android:minDate="01/01/2018"
+        android:focusedMonthDateColor="@android:color/white"
+        android:unfocusedMonthDateColor="@android:color/white"
+        android:textColorPrimary="@android:color/white"
+        android:weekNumberColor="@android:color/white"
+        android:weekSeparatorLineColor="@android:color/white"
+        android:selectedWeekBackgroundColor="@android:color/white"/>
 
 </LinearLayout>

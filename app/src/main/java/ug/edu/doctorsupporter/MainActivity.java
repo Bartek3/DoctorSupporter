@@ -66,6 +66,10 @@ public class MainActivity extends AppCompatActivity {
             Intent notepad = new Intent(this, NotepadActivity.class);
             startActivity(notepad);
         }
+        if (id == R.id.action_calendar) {
+            Intent calendar = new Intent(this, CalendarActivity.class);
+            startActivity(calendar);
+        }
 
 
         return super.onOptionsItemSelected(item);
