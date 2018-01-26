@@ -140,7 +140,7 @@
             android:layout_margin="20dp"
             android:layout_marginLeft="20dp"
             android:layout_row="4"
-            android:text=""
+            android:text="Ćwiartki 3, 98-300 Wrocław"
             android:textColor="@android:color/background_light"
             android:textSize="15sp" />
 
@@ -167,7 +167,7 @@
             android:layout_margin="10dp"
             android:layout_marginLeft="20dp"
             android:layout_row="6"
-            android:text=""
+            android:text="Morska 12, 12-012 Gdynia"
             android:textColor="@android:color/background_light"
             android:textSize="15sp" />
 
